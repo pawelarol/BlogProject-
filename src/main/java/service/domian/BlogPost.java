@@ -5,14 +5,43 @@ import java.util.List;
 
 public class BlogPost {
 
-    private List<BlogPost> listPost;
+    private static final  int startCounter = 1;
+    private static final int finishCounter = 3;
+    private int limit = finishCounter - startCounter + 1;
+    private int offset = startCounter - 1;
     private long postId;
     private String title;
     private String text;
     private String userName;
     private LocalDateTime dateOfPublish;
+    private List<BlogPost> listPost;
     private List<BlogComment> comments;
 
+
+    public int getStartCounter() {
+        return startCounter;
+    }
+
+    public int getFinishCounter() {
+        return finishCounter;
+    }
+
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
     public List<BlogPost> getListPost() {
         return listPost;
