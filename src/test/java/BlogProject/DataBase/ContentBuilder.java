@@ -8,10 +8,6 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 public class ContentBuilder {
-//    1. Прогамма создает структуру
-//    2.У каждой структуры есть свой АЙДИ
-//            3. каддый раз после выполнения программы ее айди должен прибавляться к счетчику и там самым увеличиваться на 1
-//    4.
 
     public static final Random random = new Random();
 

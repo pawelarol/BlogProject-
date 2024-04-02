@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d182bcb9-a337-43d8-a95c-d83d68461653" name="Changes" comment="" />
+    <list default="true" id="d182bcb9-a337-43d8-a95c-d83d68461653" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/main/java/buildSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
