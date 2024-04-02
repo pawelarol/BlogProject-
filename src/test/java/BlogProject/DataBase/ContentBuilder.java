@@ -5,40 +5,33 @@ import service.domian.BlogComment;
 import service.domian.BlogPost;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class ContentBuilder {
-   @Before
-    public List<BlogPost> createPost(){
-        List<BlogPost> postList = new ArrayList<>();
-        for(int i = 0; i < 5; i++ ) {
+//    1. Прогамма создает структуру
+//    2.У каждой структуры есть свой АЙДИ
+//            3. каддый раз после выполнения программы ее айди должен прибавляться к счетчику и там самым увеличиваться на 1
+//    4.
 
-            BlogPost bp = new BlogPost();
-            bp.setPostId(0 + i);
-            bp.setTitle("Title blog" + i);
-            bp.setText("Text blog" + i);
-            bp.setDateOfPublish(LocalDateTime.now());
-            bp.setUserName("User post" + i);
+    public static final Random random = new Random();
 
-            postList.add(bp);
-        }
-        return postList;
+    public static BlogPost createPost() {
+        BlogPost bp = new BlogPost();
+        bp.setTitle("Title blog" + random.nextInt(1000));
+        bp.setText("Text blog" + random.nextInt(1000));
+        bp.setDateOfPublish(LocalDateTime.now());
+        bp.setUserName("User post" + random.nextInt(1000));
+        return bp;
     }
 
-    @Before
-    public List<BlogComment> createComments(){
-        List<BlogComment> commentList = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
+    public BlogComment createComment(){
             BlogComment bc = new BlogComment();
-            bc.setPostId(0 + i);
-            bc.setTitle("Title comment " + i);
-            bc.setText("Text comment " + i);
+            bc.setPostId(2);
+            bc.setTitle("Title comment "  + random.nextInt(1000));
+            bc.setText("Text comment "  + random.nextInt(1000) );
             bc.setDateOfPublish(LocalDateTime.now());
-            bc.setUserName("User comment " + i);
+            bc.setUserName("User comment "  + random.nextInt(1000));
 
-            commentList.add(bc);
-        }
-        return commentList;
+        return bc;
     }
 }

@@ -8,13 +8,12 @@ import java.util.List;
 
 public interface DictionaryInterface {
 
-    List<BlogPost> getPosts( int page, int pageSize) throws SQLException;
-    void addComment(List<BlogComment> blogComments) throws SQLException;
+    List<BlogPost> getPosts(int page, int pageSize) throws SQLException;
+    boolean addComment(BlogComment blogComment) throws SQLException;
     BlogPost getPostWithComments(long postId) throws SQLException;
 
-    void addPost(BlogPost postId) throws SQLException;
+    boolean addPost(BlogPost postId) throws SQLException;
 
-    List<BlogComment> getComment(BlogComment commentId) throws SQLException;
+    List<BlogComment> getComments(int postId, int page, int pageSize) throws SQLException;
 
-    BlogPost getPostWithComments2(int postId, int page, int pageSize) throws SQLException;
 }

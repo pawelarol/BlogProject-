@@ -10,6 +10,7 @@ public class BlogPost {
     private int limit = finishCounter - startCounter + 1;
     private int offset = startCounter - 1;
     private long postId;
+    private boolean status;
     private String title;
     private String text;
     private String userName;
@@ -17,6 +18,13 @@ public class BlogPost {
     private List<BlogPost> listPost;
     private List<BlogComment> comments;
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     public int getStartCounter() {
         return startCounter;

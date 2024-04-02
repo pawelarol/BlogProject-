@@ -1,14 +1,34 @@
 package service.domian;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class BlogComment extends BlogPost{
-    private long postId;
+    private int postId;
     private long commentId;
+    private boolean status;
     private String text;
     private String userName;
     private LocalDateTime dateOfPublish;
+
+
+    @Override
+    public boolean isStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @Override
+    public long getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
 
     public long getCommentId() {
         return commentId;
