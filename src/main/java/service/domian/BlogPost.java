@@ -106,4 +106,20 @@ public class BlogPost {
     public void setComments(List<BlogComment> comments) {
         this.comments = comments;
     }
+
+    @Override
+    public String toString() {
+        return "BlogPost{" +
+                "limit=" + limit +
+                ", offset=" + offset +
+                ", postId=" + postId +
+                ", status=" + status +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", userName='" + userName + '\'' +
+                ", dateOfPublish=" + dateOfPublish +
+                ", listPost=" + listPost +
+                ", comments=" + comments +
+                '}';
+    }
 }
