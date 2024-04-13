@@ -2,11 +2,9 @@ package web.Servlets;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import web.Interfaces.Manager;
-
 import java.net.Socket;
 
-public class CommentServlet extends Manager {
+public class CommentServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(PostServlet.class);
     private static Socket client;
@@ -20,7 +18,6 @@ public class CommentServlet extends Manager {
         boost.start();
     }
 
-    @Override
     public String addInf(String command) {
         return null;
     }
