@@ -1,9 +1,10 @@
 package service.domian;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class BlogPost {
+public class BlogPostRequest {
 
     private static final  int startCounter = 1;
     private static final int finishCounter = 3;
@@ -14,9 +15,10 @@ public class BlogPost {
     private String title;
     private String text;
     private String userName;
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDateTime dateOfPublish;
-    private List<BlogPost> listPost;
-    private List<BlogComment> comments;
+    private List<BlogPostRequest> listPost;
+    private List<BlogCommentRequest> comments;
 
     public boolean isStatus() {
         return status;
@@ -51,11 +53,11 @@ public class BlogPost {
         this.offset = offset;
     }
 
-    public List<BlogPost> getListPost() {
+    public List<BlogPostRequest> getListPost() {
         return listPost;
     }
 
-    public void setListPost(List<BlogPost> listPost) {
+    public void setListPost(List<BlogPostRequest> listPost) {
         this.listPost = listPost;
     }
 
@@ -99,11 +101,11 @@ public class BlogPost {
         this.dateOfPublish = dateOfPublish;
     }
 
-    public List<BlogComment> getComments() {
+    public List<BlogCommentRequest> getComments() {
         return comments;
     }
 
-    public void setComments(List<BlogComment> comments) {
+    public void setComments(List<BlogCommentRequest> comments) {
         this.comments = comments;
     }
 

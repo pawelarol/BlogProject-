@@ -1,12 +1,10 @@
 package web.Servlets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServlet;
 import java.net.Socket;
 
 public class UserServlet extends HttpServlet {
-    private static final Logger logger = LoggerFactory.getLogger(PostServlet.class);
+  //  private static final Logger logger = LoggerFactory.getLogger(PostServlet.class);
     private static Socket client;
 
     public void setClient(Socket client) {
@@ -21,7 +19,7 @@ public class UserServlet extends HttpServlet {
     static class BoosterClass extends Thread {
         @Override
         public void run() {
-            logger.info("AddPostServlet is started ");
+   //         logger.info("AddPostServlet is started ");
             addUser();
             deleteUser();
             changeUser();

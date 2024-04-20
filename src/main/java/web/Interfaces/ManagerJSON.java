@@ -1,7 +1,7 @@
 package web.Interfaces;
 
-import service.domian.BlogComment;
-import service.domian.BlogPost;
+import service.domian.BlogCommentRequest;
+import service.domian.BlogPostRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public abstract class ManagerJSON {
     private String text;
     private String userName;
     private LocalDateTime dateOfPublish;
-    private List<BlogPost> listPost;
-    private List<BlogComment> comments;
+    private List<BlogPostRequest> listPost;
+    private List<BlogCommentRequest> comments;
 
 }

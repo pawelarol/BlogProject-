@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>BlogPoject</display-name>
+    <description>This is education web page for my first web project</description>
+    <listener>
+        <listener-class>A:\javaCode\Git\BlogProject\src\main\java\web\listener\Listener.java</listener-class>
+    </listener>
+<servlet>
+    <servlet-name>PostServlet</servlet-name>
+    <servlet-class>A:\javaCode\Git\BlogProject\src\main\java\web\CommandClasses\Post\PostServlet.java</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>PostServlet</servlet-name>
+<url-pattern>/addPost</url-pattern>
+</servlet-mapping>
+
+
+
+
+</web-app>

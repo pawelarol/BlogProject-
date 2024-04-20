@@ -1,6 +1,4 @@
 package web.domian;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import service.dao.DictionaryDaoImpl;
 import web.Interfaces.ManagerJSON;
 import java.io.*;
@@ -17,7 +15,7 @@ public class Server {
     // здесь была сделана реализация передачи клиента не через конструкторы, а через сетеры
     // с одним конструктором на сервере
 
-    private static final Logger logger = LoggerFactory.getLogger(Server.class);
+   // private static final Logger logger = LoggerFactory.getLogger(Server.class);
 
 
     //server start
@@ -35,7 +33,7 @@ public class Server {
     }
 
     private static Map<String, ManagerJSON> loadHaldlers() {
-        logger.info("AddPostServlet is started ");
+       // logger.info("AddPostServlet is started ");
         Map<String, ManagerJSON> postList = new HashMap<>();
         try (InputStream is = Server.class.getClassLoader().getResourceAsStream("server.properties")) {
 
@@ -60,7 +58,7 @@ public class Server {
 
        class BoosterClass extends Thread {
 
-           private static final Logger logger = LoggerFactory.getLogger(Server.class);
+      //     private static final Logger logger = LoggerFactory.getLogger(Server.class);
 
            public static Socket client;
            private Map<String, ManagerJSON> handlers;
@@ -72,7 +70,7 @@ public class Server {
 
            @Override
            public void run() {
-               logger.info("method run is started ");
+       //        logger.info("method run is started ");
                handleRequest();
 
            }

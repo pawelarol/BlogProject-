@@ -1,13 +1,15 @@
 package service.domian;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 
-public class BlogComment extends BlogPost{
+public class BlogCommentRequest extends BlogPostRequest {
     private int postId;
     private long commentId;
     private boolean status;
     private String text;
     private String userName;
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDateTime dateOfPublish;
 
 

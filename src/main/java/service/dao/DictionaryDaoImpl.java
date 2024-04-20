@@ -1,7 +1,8 @@
 package service.dao;
 
-import service.domian.BlogComment;
-import service.domian.BlogPost;
+import service.domian.BlogCommentRequest;
+import service.domian.BlogPostRequest;
+import web.CommandClasses.Post.BlogPostResponse;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -38,8 +39,8 @@ public class DictionaryDaoImpl implements DictionaryInterface {
 
 
     @Override
-    public boolean addPost(BlogPost blogPost) {
-        boolean result = false;
+    public BlogPostResponse addPost(BlogPostRequest blogPost) {
+        BlogPostResponse response = new BlogPostResponse();
         try (Connection con = getConnect();
              PreparedStatement stmt = con.prepareStatement(ADD_POST)) {
             stmt.setString(1, blogPost.getTitle());
@@ -50,19 +51,21 @@ public class DictionaryDaoImpl implements DictionaryInterface {
             int answer = stmt.executeUpdate();
 
             if (answer > 0) {
-                result = true;
+              response.setAddPostAnswer(true);
+            } else {
+                response.setAddPostAnswer(false);
             }
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
-        return result;
+        return response;
     }
 
     @Override
-    public List<BlogPost> getPosts(int page, int pageSize) {
-        List<BlogPost> answer = new ArrayList<>();
+    public List<BlogPostRequest> getPosts(int page, int pageSize) {
+        List<BlogPostRequest> answer = new ArrayList<>();
         int startIndex = 0;
         int endIndex = 0;
         if (page <= 0 || pageSize <= 0) {
@@ -74,7 +77,7 @@ public class DictionaryDaoImpl implements DictionaryInterface {
                  PreparedStatement stmt = con.prepareStatement(GET_POSTS)) {
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
-                    BlogPost bp = new BlogPost();
+                    BlogPostRequest bp = new BlogPostRequest();
                     bp.setPostId(rs.getLong("post_id"));
                     bp.setTitle(rs.getString("post_title"));
                     bp.setText(rs.getString("post_text"));
@@ -84,7 +87,7 @@ public class DictionaryDaoImpl implements DictionaryInterface {
 
                 startIndex = Math.min(offset, answer.size());
                 endIndex = Math.min(offset + pageSize, answer.size());
-                List<BlogPost> pagePosts = new ArrayList<>();
+                List<BlogPostRequest> pagePosts = new ArrayList<>();
 
                 for (int i = offset; i < Math.min(offset + pageSize, answer.size()); i++) {
                     pagePosts.add(answer.get(i));
@@ -97,8 +100,8 @@ public class DictionaryDaoImpl implements DictionaryInterface {
         return answer.subList(startIndex, endIndex);
     }
 
-    public BlogPost getOnePost(long postId) throws SQLException {
-        BlogPost bp = new BlogPost();
+    public BlogPostRequest getOnePost(long postId) throws SQLException {
+        BlogPostRequest bp = new BlogPostRequest();
         try (Connection con = getConnect();
              PreparedStatement stmt = con.prepareStatement(GET_POST)) {
             stmt.setLong(1, postId);
@@ -114,7 +117,7 @@ public class DictionaryDaoImpl implements DictionaryInterface {
     }
 
     @Override
-    public boolean addComment(BlogComment blogComments) throws SQLException {
+    public boolean addComment(BlogCommentRequest blogComments) throws SQLException {
         boolean result = false;
         try (Connection con = getConnect();
              PreparedStatement stmt = con.prepareStatement(ADD_COMMENT)) {
@@ -133,8 +136,8 @@ public class DictionaryDaoImpl implements DictionaryInterface {
 
 
     @Override
-    public List<BlogComment> getComments(int postId, int page, int pageSize) {
-        List<BlogComment> answer = new ArrayList<>();
+    public List<BlogCommentRequest> getComments(int postId, int page, int pageSize) {
+        List<BlogCommentRequest> answer = new ArrayList<>();
         int startIndex = 0;
         int endIndex = 0;
         if (page <= 0 || pageSize <= 0) {
@@ -146,7 +149,7 @@ public class DictionaryDaoImpl implements DictionaryInterface {
                 stmt.setInt(1, postId);
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
-                    BlogComment bc = new BlogComment();
+                    BlogCommentRequest bc = new BlogCommentRequest();
                     bc.setPostId(rs.getInt("post_id"));
                     bc.setCommentId(rs.getLong("comment_id"));
                     bc.setText(rs.getString("comment_text"));
@@ -157,7 +160,7 @@ public class DictionaryDaoImpl implements DictionaryInterface {
 
                 startIndex = Math.min(offset, answer.size());
                 endIndex = Math.min(offset + pageSize, answer.size());
-                List<BlogPost> pagePosts = new ArrayList<>();
+                List<BlogPostRequest> pagePosts = new ArrayList<>();
 
                 for (int i = offset; i < Math.min(offset + pageSize, answer.size()); i++) {
                     pagePosts.add(answer.get(i));
@@ -174,10 +177,10 @@ public class DictionaryDaoImpl implements DictionaryInterface {
 
 
     @Override
-    public BlogPost getPostWithComments(long postId) throws SQLException {
-        BlogPost bp = new BlogPost();
-        BlogComment bc = new BlogComment();
-        List<BlogComment> commentList = new ArrayList<>();
+    public BlogPostRequest getPostWithComments(long postId) throws SQLException {
+        BlogPostRequest bp = new BlogPostRequest();
+        BlogCommentRequest bc = new BlogCommentRequest();
+        List<BlogCommentRequest> commentList = new ArrayList<>();
         try (Connection con = getConnect();
              PreparedStatement stmt = con.prepareStatement(GET_PWC)) {
             stmt.setLong(1, postId);
