@@ -31,13 +31,14 @@ public class PostServlet extends HttpServlet {
 
     }
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setCharacterEncoding("UTF-8");
 
         BlogPostRequest blogReq = new BlogPostRequest();
         blogReq.setTitle(req.getParameter("Title"));
         blogReq.setText(req.getParameter("Text"));
+        blogReq.setUserName(req.getParameter("UserName"));
         //be written logic for user
      //   blogReq.setUserName(req.getParameter("User Name: "));
         blogReq.setDateOfPublish(LocalDateTime.now());

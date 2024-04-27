@@ -1,19 +1,37 @@
 package service.domian;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
-public class UserBlog {
+public class BlogUserRequest {
     private long userId;
     private String userName;
     private String userMail;
-    private String password;
-    private String flName;
+    private String userPassword;
+    private String firstLastName;
+    private String aboutYourself;
     private byte[] userAvatar;
-    private LocalDateTime dateOfRegister;
+    private Timestamp dateOfRegister;
     private List<BlogPostRequest> userPosts;
     private List<BlogCommentRequest> userComments;
     private String userRole;
+
+
+    public Timestamp getDateOfRegister() {
+        return dateOfRegister;
+    }
+
+    public void setDateOfRegister(Timestamp dateOfRegister) {
+        this.dateOfRegister = dateOfRegister;
+    }
+
+    public String getAboutYourself() {
+        return aboutYourself;
+    }
+
+    public void setAboutYourself(String aboutYourself) {
+        this.aboutYourself = aboutYourself;
+    }
 
     public long getUserId() {
         return userId;
@@ -39,20 +57,20 @@ public class UserBlog {
         this.userMail = userMail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public String getFlName() {
-        return flName;
+    public String getFirstLastName() {
+        return firstLastName;
     }
 
-    public void setFlName(String flName) {
-        this.flName = flName;
+    public void setFirstLastName(String firstLastName) {
+        this.firstLastName = firstLastName;
     }
 
     public byte[] getUserAvatar() {
@@ -61,14 +79,6 @@ public class UserBlog {
 
     public void setUserAvatar(byte[] userAvatar) {
         this.userAvatar = userAvatar;
-    }
-
-    public LocalDateTime getDateOfRegister() {
-        return dateOfRegister;
-    }
-
-    public void setDateOfRegister(LocalDateTime dateOfRegister) {
-        this.dateOfRegister = dateOfRegister;
     }
 
     public List<BlogPostRequest> getUserPosts() {
@@ -94,5 +104,6 @@ public class UserBlog {
     public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
+
 }
 

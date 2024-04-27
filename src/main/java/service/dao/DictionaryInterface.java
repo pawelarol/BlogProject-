@@ -2,7 +2,9 @@ package service.dao;
 
 import service.domian.BlogCommentRequest;
 import service.domian.BlogPostRequest;
+import service.domian.BlogUserRequest;
 import web.CommandClasses.Post.BlogPostResponse;
+import web.CommandClasses.User.BlogUserResponse;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -16,5 +18,13 @@ public interface DictionaryInterface {
     BlogPostResponse addPost(BlogPostRequest postId) throws SQLException;
 
     List<BlogCommentRequest> getComments(int postId, int page, int pageSize) throws SQLException;
+
+    BlogUserResponse addUser(BlogUserRequest userBlog) throws SQLException;
+    BlogUserRequest getUser(BlogUserRequest userBlog) throws SQLException;
+
+    BlogUserResponse deleteUser(BlogUserRequest userName) throws SQLException;
+
+
+
 
 }

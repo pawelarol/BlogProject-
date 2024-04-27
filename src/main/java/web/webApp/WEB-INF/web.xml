@@ -13,6 +13,10 @@
     <servlet-name>PostServlet</servlet-name>
     <servlet-class>A:\javaCode\Git\BlogProject\src\main\java\web\CommandClasses\Post\PostServlet.java</servlet-class>
 </servlet>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>A:\javaCode\Git\BlogProject\src\main\java\web\CommandClasses\User\UserServlet.java</servlet-class>
+    </servlet>
 
 <servlet-mapping>
 <servlet-name>PostServlet</servlet-name>

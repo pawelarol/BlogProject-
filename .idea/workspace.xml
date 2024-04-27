@@ -5,34 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d182bcb9-a337-43d8-a95c-d83d68461653" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/PostServlet.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../src/main/java/buildSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/dao/DictionaryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/dao/DictionaryDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/dao/DictionaryInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/dao/DictionaryInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/BlogComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/BlogCommentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/BlogPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/BlogPostRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/AddPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/AddPostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/UserBlog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/BlogUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Comment/AddComment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/BlogPostResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/BlogPostResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/PostServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/PostServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/Interfaces/ManagerJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Interfaces/ManagerJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/Servlets/CommentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Servlets/CommentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/Servlets/PostServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/Servlets/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Servlets/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/Servlets/CommentServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/Servlets/UserServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/domian/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/CommandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/CommandsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/ContentBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/ContentBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/dao/DictionaryDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/dao/DictionaryDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/dao/DictionaryInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/dao/DictionaryInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/domian/BlogComment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/domian/BlogPost.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/CommandsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/CommandsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/ContentBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/ContentBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,26 +59,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "A:/javaCode/Git/ExternalSystems/city-register",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;A:/javaCode/Git/BlogProject&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="web.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ListenerTest.TestDestroyed">
+  <component name="RunManager" selected="JUnit.UserTests.addTest">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="web.domian.Server" />
       <module name="BlogProject" />
@@ -98,38 +88,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommandsTest.addPostsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BlogProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.DataBase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.CommandsTest" />
-      <option name="METHOD_NAME" value="addPostsTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommandsTest.getPostsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BlogProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.DataBase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.CommandsTest" />
-      <option name="METHOD_NAME" value="getPostsTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,17 +108,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ListenerTest.TestDestroyed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserTests.addTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BlogProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Logger.*" />
+          <option name="PATTERN" value="BlogProject.DataBase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Logger" />
-      <option name="MAIN_CLASS_NAME" value="Logger.ListenerTest" />
-      <option name="METHOD_NAME" value="TestDestroyed" />
+      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.UserTests" />
+      <option name="METHOD_NAME" value="addTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTests.deleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlogProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.DataBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.UserTests" />
+      <option name="METHOD_NAME" value="deleteTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTests.getTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlogProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.DataBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.UserTests" />
+      <option name="METHOD_NAME" value="getTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ListenerTest.TestDestroyed" />
-        <item itemvalue="JUnit.ListenerTest.TestCreated" />
+        <item itemvalue="JUnit.UserTests.addTest" />
+        <item itemvalue="JUnit.UserTests.deleteTest" />
+        <item itemvalue="JUnit.UserTests.getTest" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.CommandsTest.getPostsTest" />
-        <item itemvalue="JUnit.CommandsTest.addPostsTest" />
+        <item itemvalue="JUnit.ListenerTest.TestCreated" />
       </list>
     </recent_temporary>
   </component>
@@ -201,5 +191,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Version" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/listener/Listener.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/listener/Listener.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -83,7 +83,7 @@ public class Server {
                    String post = br.readLine();
                    String[] lines = post.split("\\s+");
 
-                   // дописмать реализацию создания обьекта
+                   // дописать реализацию создания обьекта
 
                    String command = lines[0];
                    String title = lines[1];

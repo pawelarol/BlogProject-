@@ -2,14 +2,8 @@ package web.CommandClasses.Post;
 
 public class BlogPostResponse {
     private boolean addPostAnswer;
-
-
-    @Override
-    public String toString() {
-        return "BlogPostResponse{" +
-                "addPostAnswer=" + addPostAnswer +
-                '}';
-    }
+    private boolean deletePostAnswer;
+    private boolean editPostAnswer;
 
     public boolean isAddPostAnswer() {
         return addPostAnswer;
@@ -17,5 +11,30 @@ public class BlogPostResponse {
 
     public void setAddPostAnswer(boolean addPostAnswer) {
         this.addPostAnswer = addPostAnswer;
+    }
+
+    public boolean isDeletePostAnswer() {
+        return deletePostAnswer;
+    }
+
+    public void setDeletePostAnswer(boolean deletePostAnswer) {
+        this.deletePostAnswer = deletePostAnswer;
+    }
+
+    public boolean isEditPostAnswer() {
+        return editPostAnswer;
+    }
+
+    public void setEditPostAnswer(boolean editPostAnswer) {
+        this.editPostAnswer = editPostAnswer;
+    }
+
+    @Override
+    public String toString() {
+        return "BlogPostResponse{" +
+                "addPostAnswer=" + addPostAnswer +
+                ", deletePostAnswer=" + deletePostAnswer +
+                ", editPostAnswer=" + editPostAnswer +
+                '}';
     }
 }
