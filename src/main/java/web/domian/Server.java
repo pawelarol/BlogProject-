@@ -1,121 +1,127 @@
 package web.domian;
-import service.dao.DictionaryDaoImpl;
-import web.Interfaces.ManagerJSON;
+
+import web.Interfaces.ManagerResponse;
+
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
 public class Server {
 
-    // здесь была сделана реализация передачи клиента не через конструкторы, а через сетеры
-    // с одним конструктором на сервере
+        //  у меня не обрабатываются команды
+        //  у меня не обрабатываются команды
+//    мне необходимо подавать список на метод который будет проходиться по всем классам и в самих
+//    классах написать проверку команды для если же команда не подходит то метод не начинается
+//            если же подходит то метод пошел и не распространяется на другие
 
-   // private static final Logger logger = LoggerFactory.getLogger(Server.class);
+        //ПЛАН
+        // Есть команды и данные которые должны быть переданы с ними
+        // После того кк обработчик прочитал тип коменды мы должны создать экземпляр класса
+        // и поместить его в МАР
+        // далее этот МАР отправляется в managerResponse
+        // и оттуда уже вызывается необходимый нам метод
+        // а если мы хотим добавить функционал то нам необходимо будет создать только новый класс с ответом
+        public static void main(String[] args) throws IOException {
+            ServerSocket socket = new ServerSocket(2510, 1000);
 
-
-    //server start
-    public static void main(String[] args) throws IOException {
-
-        Map<String,ManagerJSON> handlers = loadHaldlers();
-
-        ServerSocket socket = new ServerSocket(2510, 1000);
-        while (true) {
-            System.out.println("Server is started");
-            Socket client = socket.accept();
-            new BoosterClass(client,handlers).start();
-
-        }
-    }
-
-    private static Map<String, ManagerJSON> loadHaldlers() {
-       // logger.info("AddPostServlet is started ");
-        Map<String, ManagerJSON> postList = new HashMap<>();
-        try (InputStream is = Server.class.getClassLoader().getResourceAsStream("server.properties")) {
-
-            Properties properties = new Properties();
-            properties.load(is);
-
-            for (Object command : properties.keySet()) {
-                String className = properties.getProperty(command.toString());
-                Class<ManagerJSON> cl = (Class<ManagerJSON>) Class.forName(className);
-
-                ManagerJSON handler = cl.getConstructor().newInstance();
-                postList.put(command.toString(), handler);
+            Map<String, ManagerResponse> handlers = loadHendlers();
+            System.out.println("Server is created");
+            while (true) {
+                Socket client = socket.accept();
+                new SimpleServer(client, handlers);
             }
-        } catch (IOException | ClassNotFoundException | NoSuchMethodException | InstantiationException |
-                 IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
         }
-        return postList;
+
+
+
+        private static Map<String, ManagerResponse> loadHendlers() {
+            Map<String, ManagerResponse> result = new HashMap<>();
+
+            try (InputStream is = Server.class.getClassLoader().getResourceAsStream("/server.properties")) {
+
+                Properties properties = new Properties();
+                if (is != null) {
+                    properties.load(is);
+                    System.out.println("Properties are founded");
+
+                    for (Object command : properties.keySet()) {
+                        String className = properties.getProperty(command.toString());
+                        Class<ManagerResponse> cl = (Class<ManagerResponse>) Class.forName(className);
+
+                        ManagerResponse handler = cl.getConstructor().newInstance();
+                        result.put(command.toString(), handler);
+                    }
+                }  else {
+                    System.out.println("Properties have not found");
+
+                }
+            } catch (IOException | NoSuchMethodException | InstantiationException | IllegalAccessException |
+                     InvocationTargetException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
+            return result;
+        }
     }
-}
-
-       class BoosterClass extends Thread {
-
-      //     private static final Logger logger = LoggerFactory.getLogger(Server.class);
-
-           public static Socket client;
-           private Map<String, ManagerJSON> handlers;
-           public DictionaryDaoImpl dao;
-
-           public BoosterClass(Socket client, Map<String, ManagerJSON> handlers) {
-               this.client = client;
-           }
-
-           @Override
-           public void run() {
-       //        logger.info("method run is started ");
-               handleRequest();
-
-           }
-
-           private void handleRequest() {
-               try {
-                   BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                   BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
-
-                   String post = br.readLine();
-                   String[] lines = post.split("\\s+");
-
-                   // дописать реализацию создания обьекта
-
-                   String command = lines[0];
-                   String title = lines[1];
-                   String text = lines[2];
-                   LocalDateTime dateOfPublish = LocalDateTime.parse(lines[3]);
-                   String userName = lines[4];
-
-                   String response = buildResponse(command, userName);
-
-                   bw.newLine();
-                   bw.flush();
-
-                   br.close();
-                   bw.close();
-
-               } catch (IOException ex) {
-                   ex.printStackTrace(System.out);
-               }
-           }
-
-           private String buildResponse(String command, String userName) {
-               ManagerJSON handler = handlers.get(command);
-               if (handler != null) {
-                   return handler.buildResponse(command, userName);
-               }
-               return "Hello, " + userName;
-           }
-       }
 
 
+    class SimpleServer extends Thread {
 
-        // in this method I created преобразователь байтов
-        //необходимо сделать разветвитель который будет понимать
-        //какую операцию пользователь хочет выполнить возможно это лучше всего будет реализовать через
-        // switch case
+        private Socket client;
+        private Map<String, ManagerResponse> handlers;
+
+        public SimpleServer(Socket client, Map<String, ManagerResponse> handlers) {
+            this.client = client;
+        }
+
+        public void run() {
+            handleRequest();
+        }
+
+        private void handleRequest() {
+            try {
+                BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+
+                String request = br.readLine();
+                String[] lines = request.split("\\s+");
+
+                String command = lines[0];
+                String postTitle = lines[1];
+                String commentTitle = lines[2];
+                String userName = lines[3];
+
+                // после того как мы получили комманду должны понять какой метод
+                // вызывать: пост, коммент, или же пользователь
+
+                String response = buildResponseServer(command, postTitle, commentTitle, userName);
+                bw.write(response);
+                bw.newLine();
+                bw.flush();
+
+                br.close();
+                bw.close();
+
+                client.close();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+
+        private String buildResponseServer(String command, String postTitle, String commentTitle, String userName) {
+            ManagerResponse handler = handlers.get(command);
+            if (handler != null) {
+                return handler.buildResponse(command, postTitle, commentTitle, userName);
+            }
+            return "Hello from server, " + userName;
+        }
+
+
+    }
+

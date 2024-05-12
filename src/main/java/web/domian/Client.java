@@ -46,15 +46,14 @@ public class Client {
 
 
             String command = COMMAND[cmdNumber % COMMAND.length];
-
-            String title = (command + "Title blog" + random.nextInt(1000));
-            String text = (command + "Text blog" + random.nextInt(1000));
+            String posTitle = (command + "Title blog" + random.nextInt(1000));
+            String commentTitle = (command + "Text blog" + random.nextInt(1000));
             String dateOfPublish = command + LocalDateTime.now();
             String userName = (command + "User post" + random.nextInt(1000));
 
-            bw.write(title);
+            bw.write(posTitle);
             bw.newLine();
-            bw.write(text);
+            bw.write(commentTitle);
             bw.newLine();
             bw.write(dateOfPublish);
             bw.newLine();

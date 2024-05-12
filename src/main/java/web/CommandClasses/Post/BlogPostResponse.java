@@ -17,8 +17,8 @@ public class BlogPostResponse {
         return deletePostAnswer;
     }
 
-    public void setDeletePostAnswer(boolean deletePostAnswer) {
-        this.deletePostAnswer = deletePostAnswer;
+    public boolean setDeletePostAnswer(boolean deletePostAnswer) {
+      return this.deletePostAnswer = deletePostAnswer;
     }
 
     public boolean isEditPostAnswer() {

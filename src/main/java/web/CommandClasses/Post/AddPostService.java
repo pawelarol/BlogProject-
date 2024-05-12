@@ -1,10 +1,7 @@
 package web.CommandClasses.Post;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import service.dao.DictionaryDaoImpl;
+import service.dao.PostDao;
 import service.domian.BlogPostRequest;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ws.rs.Consumes;
@@ -20,14 +17,12 @@ public class AddPostService {
 
     // class for Json logic
 
-        private static final Logger logger = LoggerFactory.getLogger(AddPostService.class);
-
-        private DictionaryDaoImpl dao;
+        private PostDao dao;
 
         @PostConstruct
         public void init() throws SQLException {
-            logger.info("SERVICE is created");
-            dao = new DictionaryDaoImpl();
+            //    logger.info("SERVICE is created");
+            dao = new PostDao();
             dao.getConnect();
         }
 
@@ -35,7 +30,7 @@ public class AddPostService {
         @Consumes(MediaType.APPLICATION_JSON)
         @Produces(MediaType.APPLICATION_JSON)
         public BlogPostResponse checkPerson(BlogPostRequest request) throws Exception{
-            logger.info(request.toString());
+            //logger.info(request.toString());
             return dao.addPost(request);
         }
     }

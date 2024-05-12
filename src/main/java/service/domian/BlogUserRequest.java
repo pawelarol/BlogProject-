@@ -45,8 +45,9 @@ public class BlogUserRequest {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public String setUserName(String userName) {
         this.userName = userName;
+        return userName;
     }
 
     public String getUserMail() {

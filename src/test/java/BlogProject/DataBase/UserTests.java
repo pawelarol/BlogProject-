@@ -2,24 +2,23 @@ package BlogProject.DataBase;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.dao.DictionaryDaoImpl;
+import service.dao.UserDao;
 import service.domian.BlogUserRequest;
 import web.CommandClasses.User.BlogUserResponse;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class UserTests {
 
-    DictionaryDaoImpl dao;
+    private UserDao dao;
 
     public UserTests() {
-        dao = new DictionaryDaoImpl();
+        dao = new UserDao();
     }
 
     @Test
-    public void addTest() throws SQLException {
+    public void addTest() {
         BlogUserRequest userReq = new BlogUserRequest();
         userReq.setUserName("Pavel");
         userReq.setUserMail("pawelarol@gmail.com");
@@ -28,7 +27,7 @@ public class UserTests {
         userReq.setAboutYourself("Hi my name is Pavel I wanna be a rich");
         // avatar
         userReq.setDateOfRegister(Timestamp.valueOf(LocalDateTime.now()));
-        // userPosts, userComments
+        // userPosts, userComments list
         userReq.setUserRole("Admin");
 
         BlogUserResponse blogUserResponse = dao.addUser(userReq);
@@ -36,7 +35,7 @@ public class UserTests {
     }
 
     @Test
-    public void getTest() throws SQLException {
+    public void getTest(){
         BlogUserRequest userReq = new BlogUserRequest();
         userReq.setUserName("Pavel");
         BlogUserRequest user = dao.getUser(userReq);
@@ -46,7 +45,7 @@ public class UserTests {
     }
 
     @Test
-    public void deleteTest() throws SQLException{
+    public void deleteTest() {
         BlogUserRequest userReq = new BlogUserRequest();
         userReq.setUserName("Pavel");
         BlogUserResponse blogUserResponse = dao.deleteUser(userReq);

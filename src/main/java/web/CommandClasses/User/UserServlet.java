@@ -1,8 +1,10 @@
 package web.CommandClasses.User;
 
-import service.dao.DictionaryDaoImpl;
+import service.dao.UserDao;
 import service.domian.BlogUserRequest;
 import web.Interfaces.ServletManager;
+
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -10,13 +12,19 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-
+@WebServlet(name = "BlogUser", urlPatterns = "/User")
 public class UserServlet extends ServletManager {
 
-    private DictionaryDaoImpl dao;
+    private final static long serialVersionUID = 1L;
+    private UserDao dao;
 
-    public UserServlet(){
-        dao = new DictionaryDaoImpl();
+    public void init(){
+        dao = new UserDao();
+        try {
+            dao.getConnect();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -30,20 +38,28 @@ public class UserServlet extends ServletManager {
         try {
 
             BlogUserRequest baseAnswer = dao.getUser(userRequest);
-            PrintWriter out = resp.getWriter();
-            out.println("<html><body>");
-            out.println("<h1>User Details</h1>");
-            out.println("<p>User Name: " + baseAnswer.getUserName() + "</p>");
-            out.println("<p>User Email: " + baseAnswer.getUserMail() + "</p>");
-            out.println("<p>User Password: " + baseAnswer.getUserPassword() + "</p>");
-            out.println("<p>First and Last Name: " + baseAnswer.getFirstLastName() + "</p>");
-            out.println("<p>About Yourself: " + baseAnswer.getAboutYourself() + "</p>");
-            out.println("<p>Date of Register: " + baseAnswer.getDateOfRegister() + "</p>");
-            out.println("<p>User Role: " + baseAnswer.getUserRole() + "</p>");
 
-            out.println("</body></html>");
+            if(baseAnswer == null) {
+                PrintWriter out = resp.getWriter();
+                out.println("<html><body>");
+                out.println("<h1>User Details</h1>");
+                out.println("<p>User Name: " + baseAnswer.getUserName() + "</p>");
+                out.println("<p>User Email: " + baseAnswer.getUserMail() + "</p>");
+                out.println("<p>User Password: " + baseAnswer.getUserPassword() + "</p>");
+                out.println("<p>First and Last Name: " + baseAnswer.getFirstLastName() + "</p>");
+                out.println("<p>About Yourself: " + baseAnswer.getAboutYourself() + "</p>");
+                out.println("<p>Date of Register: " + baseAnswer.getDateOfRegister() + "</p>");
+                out.println("<p>User Role: " + baseAnswer.getUserRole() + "</p>");
+                out.println("</body></html>");
+                resp.setStatus(HttpServletResponse.SC_OK);
 
-        } catch (SQLException | IOException e) {
+               } else{
+                resp.setContentType("text/html");
+                resp.getWriter().println("<html><body>User not found</body></html>");
+                resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            }
+
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -65,17 +81,46 @@ public class UserServlet extends ServletManager {
         if(userResp.isAddUserAnswer()){
                 resp.setContentType("text/html");
                 resp.getWriter().println("<html><body>User added successfully!</body></html>");
+                resp.setStatus(HttpServletResponse.SC_CREATED);
                 //написать метод который будет вызывать сервлет с выходом на главуню страницу всех постов
                 //Метод антона redirect
         } else{
                 resp.setContentType("text/html");
                 resp.getWriter().println("<html><body>Error adding user to the database</body></html>");
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 // написать логику проверки данных на правильность вводимых данных пользователем
             }
 
-    } catch (IOException | SQLException e) {
+    } catch (IOException e) {
         throw new RuntimeException(e);
     }
+    }
+
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp){
+        BlogUserRequest user = new BlogUserRequest();
+        user.setUserName(req.getParameter("userName"));
+
+        try{
+            BlogUserResponse respData = dao.deleteUser(user);
+            PrintWriter out = resp.getWriter();
+
+            if(respData.setDeleteUserAnswer(true)) {
+                out.println("<html>");
+                out.println("<body>");
+                out.println("<p><strong>User is deleted</strong></p>");
+                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            } else {
+                out.println("<html>");
+                out.println("<body>");
+                out.println("<p><strong>Something was wrong, please repeat deleteUser</strong></p>");
+                resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

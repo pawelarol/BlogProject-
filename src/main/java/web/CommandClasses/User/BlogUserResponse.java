@@ -16,8 +16,9 @@ public class BlogUserResponse {
         return deleteUserAnswer;
     }
 
-    public void setDeleteUserAnswer(boolean deleteUserAnswer) {
+    public boolean setDeleteUserAnswer(boolean deleteUserAnswer) {
         this.deleteUserAnswer = deleteUserAnswer;
+        return deleteUserAnswer;
     }
 
 

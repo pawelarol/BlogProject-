@@ -3,33 +3,30 @@ package service.domian;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 
-public class BlogCommentRequest extends BlogPostRequest {
-    private int postId;
+public class BlogCommentRequest  {
+    private String postTitle;
     private long commentId;
     private boolean status;
+    private String title;
     private String text;
     private String userName;
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDateTime dateOfPublish;
 
-
-    @Override
-    public boolean isStatus() {
-        return status;
+    public String getTitle() {
+        return title;
     }
 
-    @Override
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    @Override
-    public long getPostId() {
-        return postId;
+    public String getPostTitle() {
+        return postTitle;
     }
 
-    public void setPostId(int postId) {
-        this.postId = postId;
+    public void setPostTitle(String postTitle) {
+        this.postTitle = postTitle;
     }
 
     public long getCommentId() {
@@ -40,33 +37,38 @@ public class BlogCommentRequest extends BlogPostRequest {
         this.commentId = commentId;
     }
 
-    @Override
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     public String getText() {
         return text;
     }
 
-    @Override
     public void setText(String text) {
         this.text = text;
     }
 
-    @Override
     public String getUserName() {
         return userName;
     }
 
-    @Override
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    @Override
     public LocalDateTime getDateOfPublish() {
         return dateOfPublish;
     }
 
-    @Override
     public void setDateOfPublish(LocalDateTime dateOfPublish) {
         this.dateOfPublish = dateOfPublish;
+    }
+
+    public void setPostId(int i) {
     }
 }

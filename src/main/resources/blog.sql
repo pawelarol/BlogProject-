@@ -15,18 +15,19 @@ CREATE TABLE bl_user (
 
 CREATE TABLE bl_post (
     post_id SERIAL PRIMARY KEY,
-    user_id INT NOT NULL,
     post_title VARCHAR(255) NOT NULL,
     post_text VARCHAR(10000) NOT NULL,
     publicist_name VARCHAR(255) NOT NULL,
+    user_id int,
     dateOfPublish TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES bl_user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE bl_comment (
     comment_id SERIAL PRIMARY KEY,
-    post_id INT NOT NULL,
-    user_id INT NOT NULL,
+    post_title varchar(255) not null,
+    user_id varchar(255) not null,
+    comment_title varchar(255) not null,
     comment_text VARCHAR(10000) NOT NULL,
     publicist_name VARCHAR(255) NOT NULL,
     dateOfPublish TIMESTAMP NOT NULL,

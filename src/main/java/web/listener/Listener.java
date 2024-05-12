@@ -21,7 +21,7 @@ public class Listener implements HttpSessionListener {
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
 
-            logger.info("My first log");
+          logger.info("My first log");
 
         } catch (SecurityException e) {
             e.printStackTrace();
