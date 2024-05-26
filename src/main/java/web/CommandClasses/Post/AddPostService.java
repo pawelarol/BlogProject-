@@ -1,17 +1,13 @@
 package web.CommandClasses.Post;
 
-import service.dao.PostDao;
-import service.domian.BlogPostRequest;
+import persistance.dao.PostDao;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
 
-@Path("/check")
+@Path("/AddPost")
 @Singleton
 public class AddPostService {
 
@@ -25,12 +21,12 @@ public class AddPostService {
             dao = new PostDao();
             dao.getConnect();
         }
-
-        @POST
-        @Consumes(MediaType.APPLICATION_JSON)
-        @Produces(MediaType.APPLICATION_JSON)
-        public BlogPostResponse checkPerson(BlogPostRequest request) throws Exception{
-            //logger.info(request.toString());
-            return dao.addPost(request);
-        }
+//
+//        @POST
+//        @Consumes(MediaType.APPLICATION_JSON)
+//        @Produces(MediaType.APPLICATION_JSON)
+//        public Post checkPerson(Post request) throws Exception{
+//            //logger.info(request.toString());
+//            return dao.addPost(request);
+//        }
     }

@@ -1,6 +1,6 @@
-package service.dao;
+package persistance.dao;
 
-import service.config.ConfigDao;
+import persistance.config.ConfigDao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

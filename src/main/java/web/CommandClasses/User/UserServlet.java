@@ -1,7 +1,7 @@
 package web.CommandClasses.User;
 
-import service.dao.UserDao;
-import service.domian.BlogUserRequest;
+import persistance.dao.UserDao;
+import web.domian.BlogUserRequest;
 import web.Interfaces.ServletManager;
 
 import javax.servlet.annotation.WebServlet;

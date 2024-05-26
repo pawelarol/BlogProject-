@@ -1,7 +1,8 @@
 package web.CommandClasses.Comment;
 
-import service.dao.CommentDao;
-import service.domian.BlogCommentRequest;
+import persistance.Interfaces.DaoCommentInterface;
+import persistance.dao.CommentDao;
+import web.domian.BlogCommentRequest;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,11 +29,12 @@ public class CommentServlet extends HttpServlet {
 
     private final static long serialVersionUID = 1L;
 
-    private CommentDao dao;
+    private DaoCommentInterface dao;
     private String post;
 
     public void init() {
         dao = new CommentDao();
+        //dao = new CommentDaoInterface;
         post = "";
         // как передать postTitle
         try {
@@ -62,6 +64,9 @@ public class CommentServlet extends HttpServlet {
                 resp.setStatus(HttpServletResponse.SC_ACCEPTED);
                 resp.setContentType("text/html");
                 resp.getWriter().println("<html><body>Data added successfully!</body></html>");
+                // call method getPosts with last 10 posts
+                // специальный метод для посылания ответа браузера
+                resp.sendRedirect("/Comments");
             } else {
                 resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 resp.setContentType("text/html");

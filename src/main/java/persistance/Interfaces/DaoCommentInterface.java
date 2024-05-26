@@ -1,6 +1,6 @@
-package service.Interfaces;
+package persistance.Interfaces;
 
-import service.domian.BlogCommentRequest;
+import web.domian.BlogCommentRequest;
 import web.CommandClasses.Comment.BlogCommentResponse;
 
 import java.sql.SQLException;

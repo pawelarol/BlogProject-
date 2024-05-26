@@ -2,8 +2,8 @@ package BlogProject.DataBase;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.dao.UserDao;
-import service.domian.BlogUserRequest;
+import persistance.dao.UserDao;
+import web.domian.BlogUserRequest;
 import web.CommandClasses.User.BlogUserResponse;
 
 import java.sql.Timestamp;

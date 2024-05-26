@@ -2,9 +2,8 @@ package BlogProject.DataBase;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.dao.CommentDao;
-import service.domian.BlogCommentRequest;
-import service.domian.BlogPostRequest;
+import persistance.dao.CommentDao;
+import web.domian.BlogCommentRequest;
 import web.CommandClasses.Comment.BlogCommentResponse;
 
 import java.sql.SQLException;

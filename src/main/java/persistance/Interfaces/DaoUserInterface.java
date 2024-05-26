@@ -1,6 +1,6 @@
-package service.Interfaces;
+package persistance.Interfaces;
 
-import service.domian.BlogUserRequest;
+import web.domian.BlogUserRequest;
 import web.CommandClasses.User.BlogUserResponse;
 
 public interface DaoUserInterface {

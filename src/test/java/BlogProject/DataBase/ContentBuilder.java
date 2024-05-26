@@ -1,8 +1,8 @@
 package BlogProject.DataBase;
 
-import service.domian.BlogCommentRequest;
-import service.domian.BlogPostRequest;
-import service.domian.BlogUserRequest;
+import web.domian.BlogCommentRequest;
+import service.domian.Post;
+import web.domian.BlogUserRequest;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -12,9 +12,9 @@ public class ContentBuilder {
 
     public static final Random random = new Random();
 
-    public static BlogPostRequest createPost( ) {
+    public static Post createPost( ) {
         BlogUserRequest user = createUserTest();
-        BlogPostRequest bp = new BlogPostRequest();
+        Post bp = new Post();
         bp.setTitle("Title blog" + random.nextInt(1000));
         bp.setText("Text blog" + random.nextInt(1000));
         bp.setUserName(user.getUserName());

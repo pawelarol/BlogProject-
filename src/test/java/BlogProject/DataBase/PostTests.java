@@ -2,18 +2,27 @@ package BlogProject.DataBase;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.dao.PostDao;
-import service.domian.BlogPostRequest;
-import service.domian.BlogUserRequest;
-import web.CommandClasses.Post.BlogPostResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import persistance.dao.PostDao;
+import service.domian.ObjectStatus;
+import service.domian.Post;
+import web.domian.BlogUserRequest;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PostTests {
 
 
-//private final static Logger logger = LoggerFactory.getLogger(CommandsTest.class);
+private final static Logger logger = LoggerFactory.getLogger(PostTests.class);
+private final static Random random = new Random();
 
     private ContentBuilder builder;
     private PostDao dao;
@@ -26,37 +35,90 @@ public class PostTests {
         user = new BlogUserRequest();
     }
 
-    private int pagePost = 1;
-    private int pageComment = 1;
 
     @Test
-    public void getPostsTest() throws SQLException {
-       //// logger.info("getPosts are started ");
-        List<BlogPostRequest> posts = dao.getPosts(pagePost, 5);
-
-        Assertions.assertNotNull(posts, "The list of posts is null");
-        Assertions.assertTrue(posts.size() <= 5);
-
-        if (posts.size() == 5) {
-            pagePost++;
+    public void getPosts() throws SQLException {
+        logger.info("GetPosts is started");
+        int pageNumber = 3;
+        int pageSize = 10;
+        List<Post> postList =  dao.getPosts(pageNumber, pageSize);
+        if(postList.isEmpty()){
+            System.out.println("no data");
+        } else {
+            for (Post p : postList) {
+                System.out.println(p.toString());
+            }
         }
+
     }
 
     @Test
-    public void addPostsTest() throws SQLException {
-       // logger.info("AddPosts area started");
-        BlogPostRequest post = builder.createPost();
-        BlogPostResponse ans = dao.addPost(post);
-        Assertions.assertNotNull(ans);
-    }
+    public void addPostsTest() {
+            // logger.info("AddPosts area started");
+
+            for(int i = 0; i<50; i++) {
+                Post post = builder.createPost();
+                Post postResp = dao.addPost(post);
+                Assertions.assertNotNull(postResp);
+                System.out.println(postResp);
+            }
+        }
 
     @Test
     public void getOnePost() throws SQLException {
        // logger.info("getOnePost is started ");
-        BlogPostRequest ans = dao.getOnePost("FirstPost");
+        Post post = new Post();
+        post.setPostId(3);
+        Post ans = dao.getPost(post);
         Assertions.assertNotNull(ans);
     }
 
+    @Test
+    public void deletePostTest() throws SQLException {
+        int counterDELPost = 0;
+        Post post = new Post();
+        post.setPostId(10);
+        Post ans = dao.deletePost(post);
+        int statusPost = ans.getStatusPost();
+        if (statusPost == ObjectStatus.DELETED){
+            counterDELPost++;
+        }
 
+        System.out.println(counterDELPost);
+
+    }
+
+    @Test
+    public void deletePostTest1() throws SQLException {
+        int counterDELPost = 0;
+        Post post = new Post();
+        long postIdRandom = random.nextLong(100);
+        post.setPostId(postIdRandom);
+
+        Post ans = dao.deletePost(post);
+        int statusPost = ans.getStatusPost();
+
+        if (statusPost == ObjectStatus.DELETED) {
+            counterDELPost++;
+        }
+
+        // Проверка, что статус поста установлен как DELETED
+        Assertions.assertEquals(ObjectStatus.DELETED, statusPost);
+
+        // Проверка, что пост действительно удален из базы данных
+        try (Connection con = dao.getConnect();
+             PreparedStatement stmt = con.prepareStatement("SELECT COUNT(*) FROM bl_post WHERE post_id = ?")) {
+            stmt.setLong(1, post.getPostId());
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    assertEquals(0, count, "Пост не был удален из базы данных");
+                }
+            }
+        }
+
+        System.out.println(counterDELPost);
+    }
 }
+
 

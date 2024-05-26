@@ -1,4 +1,4 @@
-package service.domian;
+package web.domian;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -12,7 +12,6 @@ public class BlogUserRequest {
     private String aboutYourself;
     private byte[] userAvatar;
     private Timestamp dateOfRegister;
-    private List<BlogPostRequest> userPosts;
     private List<BlogCommentRequest> userComments;
     private String userRole;
 
@@ -80,14 +79,6 @@ public class BlogUserRequest {
 
     public void setUserAvatar(byte[] userAvatar) {
         this.userAvatar = userAvatar;
-    }
-
-    public List<BlogPostRequest> getUserPosts() {
-        return userPosts;
-    }
-
-    public void setUserPosts(List<BlogPostRequest> userPosts) {
-        this.userPosts = userPosts;
     }
 
     public List<BlogCommentRequest> getUserComments() {

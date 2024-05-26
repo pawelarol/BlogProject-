@@ -1,7 +1,7 @@
-package service.dao;
+package persistance.dao;
 
-import service.Interfaces.DaoCommentInterface;
-import service.domian.BlogCommentRequest;
+import persistance.Interfaces.DaoCommentInterface;
+import web.domian.BlogCommentRequest;
 import web.CommandClasses.Comment.BlogCommentResponse;
 
 import java.sql.Connection;

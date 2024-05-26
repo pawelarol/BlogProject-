@@ -1,8 +1,8 @@
-package service.domian;
+package web.domian;
 
 public class WebPage {
     private BlogUserRequest userName;
-    private BlogPostRequest posts;
+    private PostResponse posts;
     private BlogCommentRequest comments;
 
     public BlogUserRequest getUserName() {
@@ -13,11 +13,11 @@ public class WebPage {
         this.userName = userName;
     }
 
-    public BlogPostRequest getPosts() {
+    public PostResponse getPosts() {
         return posts;
     }
 
-    public void setPosts(BlogPostRequest posts) {
+    public void setPosts(PostResponse posts) {
         this.posts = posts;
     }
 
