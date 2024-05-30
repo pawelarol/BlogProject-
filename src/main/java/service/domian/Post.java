@@ -23,7 +23,7 @@ public class Post implements Serializable {
     @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "post_id")
-    private long postId;
+    private Long postId;
     @Transient
     private ObjectStatus statusPost;
     @Column(name = "post_title")

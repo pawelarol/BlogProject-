@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name =  "bl_comment")
+@Table(name = "bl_comment")
 public class Comment implements Serializable {
 
     public Comment(){
@@ -17,8 +17,11 @@ public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "comment_id")
     private long commentId;
-    @Column(name = "post_id")
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
     private Post postId;
     @Column(name = "comment_title")
     private String title;

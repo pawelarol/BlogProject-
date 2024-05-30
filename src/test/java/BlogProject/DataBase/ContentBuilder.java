@@ -1,6 +1,6 @@
 package BlogProject.DataBase;
 
-import web.domian.BlogCommentRequest;
+import service.domian.Comment;
 import service.domian.Post;
 import service.domian.User;
 
@@ -21,14 +21,11 @@ public class ContentBuilder {
         return bp;
     }
 
-    public BlogCommentRequest createComment(){
-            BlogCommentRequest bc = new BlogCommentRequest();
-            bc.setPostId(2);
+    public Comment createComment(){
+            Comment bc = new Comment();
             bc.setTitle("Title comment "  + random.nextInt(1000));
             bc.setText("Text comment "  + random.nextInt(1000) );
             bc.setDateOfPublish(LocalDateTime.now());
-            bc.setUserName("User comment "  + random.nextInt(1000));
-
         return bc;
     }
 

@@ -12,10 +12,13 @@ public class JPAPostTest {
     private ContentBuilder builder;
     private JPA jpa;
 
-    @Test
-    public void addPostTest(){
+    private JPAPostTest(){
         jpa = new JPA();
         builder = new ContentBuilder();
+    }
+
+    @Test
+    public void addPostTest(){
         Post post = builder.createPost();
         User user =  builder.createUser();
         user.setUserId(1);
@@ -23,5 +26,13 @@ public class JPAPostTest {
         Assertions.assertNotNull(postAnswer);
 
         System.out.println(postAnswer);
+    }
+
+    @Test
+    public void getPost(){
+        Long postId = 1L;
+        Post postJPA = jpa.getPostJPA(postId);
+        Assertions.assertNotNull(postJPA);
+        System.out.println(postJPA);
     }
 }

@@ -9,19 +9,15 @@
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/PostDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/PostDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Comment/CommentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Comment/CommentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/User/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/User/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/domian/BlogUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/domian/WebPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/WebPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/CommentTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/ContentBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/ContentBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/PostTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/UserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAPostTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/ContentBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/ContentBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
@@ -85,7 +81,23 @@
       <recent name="A:\javaCode\Git\BlogProject\src\main\resources\META-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JPAPostTest.addPostTest">
+  <component name="RunManager" selected="JUnit.JPAPostTest.getPost">
+    <configuration name="JPACommentTest.addCommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPACommentTest" />
+      <option name="METHOD_NAME" value="addCommentTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JPAPostTest.addPostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LetsTry" />
       <extension name="coverage">
@@ -97,6 +109,22 @@
       <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
       <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAPostTest" />
       <option name="METHOD_NAME" value="addPostTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAPostTest.getPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAPostTest" />
+      <option name="METHOD_NAME" value="getPost" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,22 +146,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostTests.deletePostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LetsTry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.DataBase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.PostTests" />
-      <option name="METHOD_NAME" value="deletePostTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PostTests.deletePostTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LetsTry" />
       <extension name="coverage">
@@ -150,29 +162,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostTests.getPosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LetsTry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.DataBase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.PostTests" />
-      <option name="METHOD_NAME" value="getPosts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JPAPostTest.getPost" />
+        <item itemvalue="JUnit.JPACommentTest.addCommentTest" />
         <item itemvalue="JUnit.JPAPostTest.addPostTest" />
         <item itemvalue="JUnit.JPAUserTest.addUserTest" />
         <item itemvalue="JUnit.PostTests.deletePostTest1" />
-        <item itemvalue="JUnit.PostTests.deletePostTest" />
-        <item itemvalue="JUnit.PostTests.getPosts" />
       </list>
     </recent_temporary>
   </component>

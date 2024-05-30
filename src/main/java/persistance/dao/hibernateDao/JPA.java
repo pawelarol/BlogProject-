@@ -21,9 +21,9 @@ public class JPA implements DaoHibernateInterface {
     @Override
     public Long addPostJPA(Post post, User userId) {
         emf = Persistence. createEntityManagerFactory("persistence");
-        em = emf.createEntityManager();
         Long postId = 0L;
         try{
+            em = emf.createEntityManager();
             em.getTransaction().begin();
             post.setUser(userId);
             em.persist(post);
@@ -46,9 +46,9 @@ public class JPA implements DaoHibernateInterface {
     @Override
     public Long addUserJPA(User user) {
         emf = Persistence.createEntityManagerFactory("persistence");
-        em = emf.createEntityManager();
         Long userId = 0L;
         try{
+            em = emf.createEntityManager();
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();
@@ -66,13 +66,53 @@ public class JPA implements DaoHibernateInterface {
     }
 
     @Override
+    public Long addCommentJPA(Comment comment, Post postId, User userId) {
+        Long commentId = 0L;
+        emf = Persistence.createEntityManagerFactory("persistence");
+        try{
+            comment.setPostId(postId);
+            comment.setUserId(userId);
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+            em.persist(comment);
+            em.getTransaction().commit();
+            commentId = comment.getCommentId();
+            System.out.println("Comment ID of the saved post: " + commentId);
+        } catch (Exception ex){
+            if(em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return commentId;
+    }
+
+    @Override
     public List<Post> getPostsJPA(int page, int pageSize) {
         return null;
     }
 
     @Override
-    public Post getPostJPA(Post postId) {
-        return null;
+    public Post getPostJPA(Long postId) {
+        Post post = null;
+        emf = Persistence.createEntityManagerFactory("persistence");
+        try{
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+           post = em.find(Post.class,postId);
+           //getCommentsJPA
+            em.getTransaction().commit();
+        } catch (Exception ex){
+            if(em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return post;
     }
 
     @Override
@@ -80,10 +120,6 @@ public class JPA implements DaoHibernateInterface {
         return null;
     }
 
-    @Override
-    public Long addCommentJPA(Comment comment) {
-        return null;
-    }
 
     @Override
     public List<Comment> getCommentsJPA(int page, int pageSize, Post postId) {

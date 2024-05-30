@@ -3,6 +3,7 @@ package service.domian;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 @Entity
 @Table( name = "bl_user")
@@ -116,5 +117,20 @@ public class User implements Serializable {
 
     public void setUserRole(String userRole) {
         this.userRole = userRole;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userMail='" + userMail + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", firstLastName='" + firstLastName + '\'' +
+                ", aboutYourself='" + aboutYourself + '\'' +
+                ", userAvatar=" + Arrays.toString(userAvatar) +
+                ", dateOfRegister=" + dateOfRegister +
+                ", userRole='" + userRole + '\'' +
+                '}';
     }
 }
