@@ -1,10 +1,10 @@
 package persistance.Interfaces;
 
-import web.domian.BlogUserRequest;
+import service.domian.User;
 import web.CommandClasses.User.BlogUserResponse;
 
 public interface DaoUserInterface {
-    BlogUserResponse addUser(BlogUserRequest userBlog);
-    BlogUserRequest getUser(BlogUserRequest userBlog);
-    BlogUserResponse deleteUser(BlogUserRequest userName);
+    BlogUserResponse addUser(User userBlog);
+    User getUser(User userBlog);
+    BlogUserResponse deleteUser(User userName);
 }

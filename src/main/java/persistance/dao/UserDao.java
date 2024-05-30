@@ -1,7 +1,7 @@
 package persistance.dao;
 
 import persistance.Interfaces.DaoUserInterface;
-import web.domian.BlogUserRequest;
+import service.domian.User;
 import web.CommandClasses.User.BlogUserResponse;
 
 import java.sql.Connection;
@@ -26,12 +26,12 @@ public class UserDao implements DaoUserInterface {
     }
 
     @Override
-    public BlogUserResponse addUser(BlogUserRequest userBlog) {
+    public BlogUserResponse addUser(User userBlog) {
         BlogUserResponse response = new BlogUserResponse();
         try (Connection con = getConnect();
              PreparedStatement stmt = con.prepareStatement(ADD_USER)) {
 
-            stmt.setString(1, userBlog.getUserName());
+            stmt.setString(1, String.valueOf(userBlog.getUserName()));
             stmt.setString(2, userBlog.getUserMail());
             stmt.setString(3, userBlog.getUserPassword());
             stmt.setString(4, userBlog.getFirstLastName());
@@ -55,14 +55,14 @@ public class UserDao implements DaoUserInterface {
     }
 
     @Override
-    public BlogUserRequest getUser(BlogUserRequest userName) {
-        BlogUserRequest userReq = new BlogUserRequest();
+    public User getUser(User userName) {
+        User userReq = new User();
         try(Connection con = getConnect();
             PreparedStatement stmt = con.prepareStatement(GET_USER)){
-            stmt.setString(1, userName.getUserName());
+            stmt.setString(1, String.valueOf(userName.getUserName()));
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                userReq.setUserName(rs.getString("user_name"));
+              //  userReq.setUserName(rs.getString("user_name"));
                 userReq.setUserMail(rs.getString("user_mail"));
                 userReq.setUserPassword(rs.getString("user_password"));
                 userReq.setFirstLastName(rs.getString("user_first_last_name"));
@@ -79,11 +79,11 @@ public class UserDao implements DaoUserInterface {
         return userReq;
     }
 
-    public BlogUserResponse deleteUser(BlogUserRequest userName){
+    public BlogUserResponse deleteUser(User userName){
         BlogUserResponse userResp = new BlogUserResponse();
         try(Connection con = getConnect();
             PreparedStatement stmt = con.prepareStatement(DELETE_USER)){
-            stmt.setString(1, userName.getUserName());
+            stmt.setString(1, String.valueOf(userName.getUserName()));
 
             int answer = stmt.executeUpdate();
 

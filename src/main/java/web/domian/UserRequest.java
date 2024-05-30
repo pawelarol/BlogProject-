@@ -3,7 +3,7 @@ package web.domian;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class BlogUserRequest {
+public class UserRequest {
     private long userId;
     private String userName;
     private String userMail;
@@ -44,9 +44,8 @@ public class BlogUserRequest {
         return userName;
     }
 
-    public String setUserName(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
-        return userName;
     }
 
     public String getUserMail() {

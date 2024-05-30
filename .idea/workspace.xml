@@ -8,35 +8,21 @@
       <change afterPath="$PROJECT_DIR$/../src/main/java/buildSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/Interfaces/DaoCommentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoCommentInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/Interfaces/DaoPostInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoPostInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/Interfaces/DaoUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/config/ConfigDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/config/ConfigDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/dao/BuilderConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/BuilderConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/dao/CommentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/CommentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/dao/PostDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/PostDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/BlogCommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/BlogCommentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/BlogPostRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/BlogUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/BlogUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/LocalDateAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/LocalDateAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/WebPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/WebPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/PostDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/PostDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Comment/CommentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Comment/CommentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/AddPostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/AddPostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/BlogPostResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/PostServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/Post/PostServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/CommandClasses/User/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/CommandClasses/User/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/domian/BlogUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/domian/WebPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/domian/WebPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/CommentTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/ContentBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/ContentBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/PostTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/DataBase/UserTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/config/ConfigDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/dao/BuilderConnection.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/ContentBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BlogProject/DataBase/ContentBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
     </list>
@@ -95,19 +81,38 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="web.impl" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\javaCode\Git\BlogProject\src\main\resources\META-INF" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.PostTests.deletePostTest1">
-    <configuration name="PostTests.addPostsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.JPAPostTest.addPostTest">
+    <configuration name="JPAPostTest.addPostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LetsTry" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="BlogProject.DataBase.*" />
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.PostTests" />
-      <option name="METHOD_NAME" value="addPostsTest" />
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAPostTest" />
+      <option name="METHOD_NAME" value="addPostTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAUserTest.addUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="addUserTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,22 +150,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostTests.getOnePost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LetsTry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.DataBase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.DataBase" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.DataBase.PostTests" />
-      <option name="METHOD_NAME" value="getOnePost" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PostTests.getPosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LetsTry" />
       <extension name="coverage">
@@ -179,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JPAPostTest.addPostTest" />
+        <item itemvalue="JUnit.JPAUserTest.addUserTest" />
         <item itemvalue="JUnit.PostTests.deletePostTest1" />
         <item itemvalue="JUnit.PostTests.deletePostTest" />
         <item itemvalue="JUnit.PostTests.getPosts" />
-        <item itemvalue="JUnit.PostTests.getOnePost" />
-        <item itemvalue="JUnit.PostTests.addPostsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -212,5 +201,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Version" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.hibernate.TypeMismatchException" package="org.hibernate" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -3,7 +3,7 @@ package BlogProject.DataBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import persistance.dao.UserDao;
-import web.domian.BlogUserRequest;
+import service.domian.User;
 import web.CommandClasses.User.BlogUserResponse;
 
 import java.sql.Timestamp;
@@ -19,7 +19,7 @@ public class UserTests {
 
     @Test
     public void addTest() {
-        BlogUserRequest userReq = new BlogUserRequest();
+        User userReq = new User();
         userReq.setUserName("Pavel");
         userReq.setUserMail("pawelarol@gmail.com");
         userReq.setUserPassword("1231");
@@ -36,9 +36,9 @@ public class UserTests {
 
     @Test
     public void getTest(){
-        BlogUserRequest userReq = new BlogUserRequest();
+        User userReq = new User();
         userReq.setUserName("Pavel");
-        BlogUserRequest user = dao.getUser(userReq);
+        User user = dao.getUser(userReq);
         if (user.getUserName() == "Pavel") {
             Assertions.assertNotNull(user);
         }
@@ -46,7 +46,7 @@ public class UserTests {
 
     @Test
     public void deleteTest() {
-        BlogUserRequest userReq = new BlogUserRequest();
+        User userReq = new User();
         userReq.setUserName("Pavel");
         BlogUserResponse blogUserResponse = dao.deleteUser(userReq);
         Assertions.assertTrue(blogUserResponse.isDeleteUserAnswer());

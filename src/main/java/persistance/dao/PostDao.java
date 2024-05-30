@@ -3,12 +3,13 @@ package persistance.dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import persistance.Interfaces.DaoPostInterface;
-import service.domian.ObjectStatus;
 import service.domian.Post;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 import static persistance.dao.BuilderConnection.getConnection;
 
 public class PostDao implements DaoPostInterface {
@@ -34,7 +35,7 @@ public class PostDao implements DaoPostInterface {
        Post response = new Post();
         response.setTitle(post.getTitle());
         response.setText(post.getText());
-        response.setUserName(post.getUserName());
+        response.setUser(post.getUser());
         response.setDateOfPublish(post.getDateOfPublish());
         return response;
     }
@@ -48,7 +49,7 @@ public class PostDao implements DaoPostInterface {
              PreparedStatement stmt = con.prepareStatement(ADD_POST, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, post.getTitle());
             stmt.setString(2, post.getText());
-            stmt.setString(3, post.getUserName());
+            stmt.setString(3, post.getUser().getUserName());
             stmt.setObject(4, post.getDateOfPublish());
 
             int affectedRows = stmt.executeUpdate();
@@ -57,16 +58,16 @@ public class PostDao implements DaoPostInterface {
                 try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         postResp.setPostId(generatedKeys.getLong(1));
-                        postResp.setStatusPost(ObjectStatus.ADDED);
+                      //  postResp.setStatusPost(ObjectStatus.ADDED);
                     } else {
-                        postResp.setStatusPost(ObjectStatus.ERROR);
+                        //postResp.setStatusPost(ObjectStatus.ERROR);
                     }
                 }
             }
 
         } catch (SQLException ex) {
              logger.info(String.valueOf(postResp));
-            postResp.setStatusPost(ObjectStatus.ERROR);
+            //postResp.setStatusPost(ObjectStatus.ERROR);
         }
 
         return postResp;
@@ -90,7 +91,7 @@ public class PostDao implements DaoPostInterface {
                     post.setPostId(rs.getLong("post_id"));
                     post.setTitle(rs.getString("post_title"));
                     post.setText(rs.getString("post_text"));
-                    post.setUserName(rs.getString("publicist_name"));
+               //     post.setUserName(rs.getString("publicist_name"));
                     // post.setDateOfPublish(rs.getObject("dateofpublish"));
                     posts.add(post);
                 }
@@ -114,7 +115,7 @@ public class PostDao implements DaoPostInterface {
                 postResp.setTitle(rs.getString("post_title"));
                 postResp.setText(rs.getString("post_text"));
 //                postResp.setStatusPost(rs.getInt("post_status"));
-                postResp.setUserName(rs.getString("publicist_name"));
+              //  postResp.setUserName(rs.getString("publicist_name"));
                 postResp.setDateOfPublish(rs.getObject("dateOfpublish", LocalDateTime.class));
             }
             return postResp;
@@ -131,9 +132,9 @@ public class PostDao implements DaoPostInterface {
             stmt.setLong(1, post.getPostId());
             int ans = stmt.executeUpdate();
             if (ans > 0) {
-                postResp.setStatusPost(ObjectStatus.DELETED);
+             //   postResp.setStatusPost(ObjectStatus.DELETED);
             } else {
-                postResp.setStatusPost(ObjectStatus.ERROR);
+             //   postResp.setStatusPost(ObjectStatus.ERROR);
             }
         }
         return postResp;

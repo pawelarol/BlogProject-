@@ -1,18 +1,39 @@
 package service.domian;
 
 import web.domian.LocalDateAdapter;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
+@Entity
+@Table(name = "bl_post")
+//@Setter
+//@Getter
+//@AllArgsConstructor
+//@NoArgsConstructor
+public class Post implements Serializable {
 
-public class Post {
+    public Post() {
 
+    }
+
+    @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column( name = "post_id")
     private long postId;
-    private int statusPost;
+    @Transient
+    private ObjectStatus statusPost;
+    @Column(name = "post_title")
     private String title;
+    @Column(name = "post_text")
     private String text;
-    private String userName;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @Column(name = "date_of_publish")
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDateTime dateOfPublish;
 
@@ -24,13 +45,6 @@ public class Post {
         this.postId = postId;
     }
 
-    public int getStatusPost() {
-        return statusPost;
-    }
-
-    public void setStatusPost(int statusPost) {
-        this.statusPost = statusPost;
-    }
 
     public String getTitle() {
         return title;
@@ -48,12 +62,20 @@ public class Post {
         this.text = text;
     }
 
-    public String getUserName() {
-        return userName;
+    public ObjectStatus getStatusPost() {
+        return statusPost;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setStatusPost(ObjectStatus statusPost) {
+        this.statusPost = statusPost;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getDateOfPublish() {
@@ -71,7 +93,7 @@ public class Post {
                 ", statusPost=" + statusPost +
                 ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + user + '\'' +
                 ", dateOfPublish=" + dateOfPublish +
                 '}';
     }

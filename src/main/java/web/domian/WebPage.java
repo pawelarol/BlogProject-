@@ -1,15 +1,15 @@
 package web.domian;
 
 public class WebPage {
-    private BlogUserRequest userName;
+    private UserRequest userName;
     private PostResponse posts;
     private BlogCommentRequest comments;
 
-    public BlogUserRequest getUserName() {
+    public UserRequest getUserName() {
         return userName;
     }
 
-    public void setUserName(BlogUserRequest userName) {
+    public void setUserName(UserRequest userName) {
         this.userName = userName;
     }
 

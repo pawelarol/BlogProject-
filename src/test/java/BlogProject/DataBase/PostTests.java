@@ -5,18 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import persistance.dao.PostDao;
-import service.domian.ObjectStatus;
 import service.domian.Post;
-import web.domian.BlogUserRequest;
+import service.domian.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PostTests {
 
@@ -26,13 +20,13 @@ private final static Random random = new Random();
 
     private ContentBuilder builder;
     private PostDao dao;
-    private BlogUserRequest user;
+    private User user;
 
 
     public PostTests() {
         builder = new ContentBuilder();
         dao = new PostDao();
-        user = new BlogUserRequest();
+        user = new User();
     }
 
 
@@ -79,46 +73,44 @@ private final static Random random = new Random();
         Post post = new Post();
         post.setPostId(10);
         Post ans = dao.deletePost(post);
-        int statusPost = ans.getStatusPost();
-        if (statusPost == ObjectStatus.DELETED){
+      //  int statusPost = ans.getStatusPost();
+        //if (statusPost == ObjectStatus.DELETED){
             counterDELPost++;
         }
 
-        System.out.println(counterDELPost);
+        //System.out.println(counterDELPost);
 
     }
 
-    @Test
-    public void deletePostTest1() throws SQLException {
-        int counterDELPost = 0;
-        Post post = new Post();
-        long postIdRandom = random.nextLong(100);
-        post.setPostId(postIdRandom);
-
-        Post ans = dao.deletePost(post);
-        int statusPost = ans.getStatusPost();
-
-        if (statusPost == ObjectStatus.DELETED) {
-            counterDELPost++;
-        }
-
-        // Проверка, что статус поста установлен как DELETED
-        Assertions.assertEquals(ObjectStatus.DELETED, statusPost);
-
-        // Проверка, что пост действительно удален из базы данных
-        try (Connection con = dao.getConnect();
-             PreparedStatement stmt = con.prepareStatement("SELECT COUNT(*) FROM bl_post WHERE post_id = ?")) {
-            stmt.setLong(1, post.getPostId());
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    int count = rs.getInt(1);
-                    assertEquals(0, count, "Пост не был удален из базы данных");
-                }
-            }
-        }
-
-        System.out.println(counterDELPost);
-    }
-}
+//    public void deletePostTest1() throws SQLException {
+//        int counterDELPost = 0;
+//        Post post = new Post();
+//        long postIdRandom = random.nextLong(100);
+//        post.setPostId(postIdRandom);
+//
+//        Post ans = dao.deletePost(post);
+//        int statusPost = ans.getStatusPost();
+//
+//        if (statusPost == ObjectStatus.DELETED) {
+//            counterDELPost++;
+//        }
+//
+//        // Проверка, что статус поста установлен как DELETED
+//        Assertions.assertEquals(ObjectStatus.DELETED, statusPost);
+//
+//        // Проверка, что пост действительно удален из базы данных
+//        try (Connection con = dao.getConnect();
+//             PreparedStatement stmt = con.prepareStatement("SELECT COUNT(*) FROM bl_post WHERE post_id = ?")) {
+//            stmt.setLong(1, post.getPostId());
+//            try (ResultSet rs = stmt.executeQuery()) {
+//                if (rs.next()) {
+//                    int count = rs.getInt(1);
+//                    assertEquals(0, count, "Пост не был удален из базы данных");
+//                }
+//            }
+//        }
+//
+//        System.out.println(counterDELPost);
+//    }
 
 

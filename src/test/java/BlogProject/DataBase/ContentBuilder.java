@@ -2,7 +2,7 @@ package BlogProject.DataBase;
 
 import web.domian.BlogCommentRequest;
 import service.domian.Post;
-import web.domian.BlogUserRequest;
+import service.domian.User;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -12,17 +12,16 @@ public class ContentBuilder {
 
     public static final Random random = new Random();
 
-    public static Post createPost( ) {
-        BlogUserRequest user = createUserTest();
+    public Post createPost( ) {
+        User user = createUser();
         Post bp = new Post();
         bp.setTitle("Title blog" + random.nextInt(1000));
         bp.setText("Text blog" + random.nextInt(1000));
-        bp.setUserName(user.getUserName());
         bp.setDateOfPublish(LocalDateTime.now());
         return bp;
     }
 
-    public static BlogCommentRequest createComment(){
+    public BlogCommentRequest createComment(){
             BlogCommentRequest bc = new BlogCommentRequest();
             bc.setPostId(2);
             bc.setTitle("Title comment "  + random.nextInt(1000));
@@ -33,8 +32,8 @@ public class ContentBuilder {
         return bc;
     }
 
-    public static BlogUserRequest createUserTest() {
-        BlogUserRequest user = new BlogUserRequest();
+    public User createUser() {
+        User user = new User();
         user.setUserName("Pavel");
         user.setUserMail("pawelarol@gmail.com");
         user.setUserPassword("12312");

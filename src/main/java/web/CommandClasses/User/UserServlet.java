@@ -1,7 +1,7 @@
 package web.CommandClasses.User;
 
 import persistance.dao.UserDao;
-import web.domian.BlogUserRequest;
+import web.domian.UserRequest;
 import web.Interfaces.ServletManager;
 
 import javax.servlet.annotation.WebServlet;
@@ -32,12 +32,12 @@ public class UserServlet extends ServletManager {
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
 
-        BlogUserRequest userRequest = new BlogUserRequest();
-         userRequest.setUserName(req.getParameter("userName"));
+        UserRequest userRequest = new UserRequest();
+       ////  userRequest.setUserName(req.getParameter("userName"));
 
         try {
 
-            BlogUserRequest baseAnswer = dao.getUser(userRequest);
+           UserRequest baseAnswer = null; //stub
 
             if(baseAnswer == null) {
                 PrintWriter out = resp.getWriter();
@@ -66,9 +66,9 @@ public class UserServlet extends ServletManager {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)  {
-        BlogUserRequest ub = new BlogUserRequest();
+        UserRequest ub = new UserRequest();
 
-        ub.setUserName(req.getParameter("userName"));
+      //  ub.setUserName(req.getParameter("userName"));
         ub.setUserMail(req.getParameter("userMail"));
         ub.setFirstLastName(req.getParameter("userFirstLastName"));
         ub.setAboutYourself(req.getParameter("aboutYourself"));
@@ -77,7 +77,7 @@ public class UserServlet extends ServletManager {
         ub.setDateOfRegister(Timestamp.valueOf(LocalDateTime.now()));
 
         try {
-        BlogUserResponse userResp = dao.addUser(ub);
+        BlogUserResponse userResp = null; // заглушка
         if(userResp.isAddUserAnswer()){
                 resp.setContentType("text/html");
                 resp.getWriter().println("<html><body>User added successfully!</body></html>");
@@ -99,11 +99,11 @@ public class UserServlet extends ServletManager {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp){
-        BlogUserRequest user = new BlogUserRequest();
-        user.setUserName(req.getParameter("userName"));
+        UserRequest user = new UserRequest();
+       // user.setUserName(req.getParameter("userName"));
 
         try{
-            BlogUserResponse respData = dao.deleteUser(user);
+            BlogUserResponse respData = null; // stub
             PrintWriter out = resp.getWriter();
 
             if(respData.setDeleteUserAnswer(true)) {
