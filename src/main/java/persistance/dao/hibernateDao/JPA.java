@@ -4,9 +4,12 @@ import persistance.Interfaces.DaoHibernateInterface;
 import service.domian.Comment;
 import service.domian.Post;
 import service.domian.User;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JPA implements DaoHibernateInterface {
@@ -14,9 +17,6 @@ public class JPA implements DaoHibernateInterface {
     private EntityManagerFactory emf;
     private EntityManager em;
 
-    public JPA(){
-
-    }
 
     @Override
     public Long addPostJPA(Post post, User userId) {
@@ -90,8 +90,26 @@ public class JPA implements DaoHibernateInterface {
     }
 
     @Override
-    public List<Post> getPostsJPA(int page, int pageSize) {
-        return null;
+    public List<Post> getPostsJPA(int page) {
+        final int pageSize = 10;
+        List<Post> posts = new ArrayList<>();
+        emf = Persistence.createEntityManagerFactory("persistence");
+        try{
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+            TypedQuery<Post> query = em.createQuery("SELECT p FROM bl_post p ORDER BY p.post_id", Post.class);
+            query.setFirstResult((page - 1) * pageSize);
+            query.setMaxResults(pageSize);
+            posts = query.getResultList();
+            em.getTransaction().commit();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+
+        return posts;
     }
 
     @Override
@@ -101,8 +119,11 @@ public class JPA implements DaoHibernateInterface {
         try{
             em = emf.createEntityManager();
             em.getTransaction().begin();
-           post = em.find(Post.class,postId);
-           //getCommentsJPA
+
+            post = em.find(Post.class,postId);
+            List<Comment> commentsJPA = getCommentsJPA(postId);
+            post.setPostComments(commentsJPA);
+
             em.getTransaction().commit();
         } catch (Exception ex){
             if(em.getTransaction().isActive()){
@@ -116,15 +137,55 @@ public class JPA implements DaoHibernateInterface {
     }
 
     @Override
-    public Long deletePostJPA(Post postId) {
-        return null;
+    public Long deletePostJPA(Post post) {
+        long answer = 0L;
+        emf = Persistence.createEntityManagerFactory("persistence");
+
+        try{
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+
+            Post findPost = em.find(Post.class, post.getPostId());
+            if (findPost != null) {
+                em.remove(findPost);
+            }
+            em.getTransaction().commit();
+            if(em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            } else {
+                answer = post.getPostId();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return answer;
     }
 
 
-    @Override
-    public List<Comment> getCommentsJPA(int page, int pageSize, Post postId) {
-        return null;
+    public List<Comment> getCommentsJPA(long postId) {
+        EntityManager em = null;
+        List<Comment> comments = null;
+        emf = Persistence.createEntityManagerFactory("persistence");
+        try {
+            em = emf.createEntityManager();
+            // Неправильно написан hql запрос, я нашел сторонний проект который помогает в генераций запросов
+            String hql = "SELECT с FROM bl_comment c  WHERE c.post_id = c.post_id ORDER BY c.date_of_publish DESC";
+            TypedQuery<Comment> query = em.createQuery(hql, Comment.class);
+            query.setParameter("post_id", postId);
+            query.setMaxResults(10);
+            comments = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return comments;
     }
+
 
     @Override
     public Comment getCommentJPA(Comment commentId) {

@@ -7,6 +7,8 @@ import persistance.dao.hibernateDao.JPA;
 import service.domian.Post;
 import service.domian.User;
 
+import java.util.List;
+
 public class JPAPostTest {
 
     private ContentBuilder builder;
@@ -19,20 +21,39 @@ public class JPAPostTest {
 
     @Test
     public void addPostTest(){
-        Post post = builder.createPost();
-        User user =  builder.createUser();
-        user.setUserId(1);
-        Long postAnswer = jpa.addPostJPA(post, user);
-        Assertions.assertNotNull(postAnswer);
+        for(int i = 0; i<30; i++) {
+            Post post = builder.createPost();
+            User user = builder.createUser();
+            user.setUserId(1);
+            Long postAnswer = jpa.addPostJPA(post, user);
+            Assertions.assertNotNull(postAnswer);
 
-        System.out.println(postAnswer);
+            System.out.println(postAnswer);
+        }
     }
 
     @Test
-    public void getPost(){
+    public void getPostTest(){
         Long postId = 1L;
         Post postJPA = jpa.getPostJPA(postId);
         Assertions.assertNotNull(postJPA);
         System.out.println(postJPA);
+    }
+
+    @Test
+    public void deletePostTest(){
+        Post post = new Post();
+        post.setPostId(2);
+        Long postId = jpa.deletePostJPA(post);
+        Assertions.assertNotNull(postId);
+    }
+
+    @Test
+    public void getPostsTest(){
+        List<Post> posts = jpa.getPostsJPA(1);
+        Assertions.assertNotNull(posts);
+        for(Post p : posts){
+            System.out.println(p);
+        }
     }
 }

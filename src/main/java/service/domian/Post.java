@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -36,6 +37,20 @@ public class Post implements Serializable {
     @Column(name = "date_of_publish")
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDateTime dateOfPublish;
+    @Transient
+    private List<Comment> postComments;
+
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
+
+    public List<Comment> getPostComments() {
+        return postComments;
+    }
+
+    public void setPostComments(List<Comment> postComments) {
+        this.postComments = postComments;
+    }
 
     public long getPostId() {
         return postId;

@@ -8,6 +8,8 @@ import service.domian.Comment;
 import service.domian.Post;
 import service.domian.User;
 
+import java.util.List;
+
 public class JPACommentTest {
     private ContentBuilder builder;
     private JPA jpa;
@@ -19,12 +21,23 @@ public class JPACommentTest {
 
     @Test
     public void addCommentTest(){
-        Comment comment = builder.createComment();
-        Post post = new Post();
-        post.setPostId(1);
-        User user = new User();
-        user.setUserId(1);
-        Long commentId = jpa.addCommentJPA(comment, post, user);
-        Assertions.assertNotNull(commentId);
+        for(int i = 0; i<10; i++) {
+            Comment comment = builder.createComment();
+            Post post = new Post();
+            post.setPostId(1);
+            User user = new User();
+            user.setUserId(1);
+            Long commentId = jpa.addCommentJPA(comment, post, user);
+            Assertions.assertNotNull(commentId);
+        }
+    }
+
+    @Test
+    public void getCommentsTest(){
+        List<Comment> comments = jpa.getCommentsJPA(2);
+        Assertions.assertNotNull(comments);
+        for(Comment c : comments){
+            System.out.println(c);
+        }
     }
 }

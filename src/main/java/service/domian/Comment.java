@@ -81,4 +81,16 @@ public class Comment implements Serializable {
     public void setDateOfPublish(LocalDateTime dateOfPublish) {
         this.dateOfPublish = dateOfPublish;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", postId=" + postId +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", userId=" + userId +
+                ", dateOfPublish=" + dateOfPublish +
+                '}';
+    }
 }

@@ -9,13 +9,13 @@ import java.util.List;
 public interface DaoHibernateInterface {
     // posts
     Long addPostJPA(Post post, User user);
-    List<Post> getPostsJPA(int page, int pageSize);
+    List<Post> getPostsJPA(int page);
     Post getPostJPA(Long postId);
     Long deletePostJPA(Post postId);
 
     // comments
     Long addCommentJPA(Comment comment, Post post, User user);
-    List<Comment> getCommentsJPA(int page, int pageSize, Post postId);
+    List<Comment> getCommentsJPA(long postId);
     Comment getCommentJPA(Comment commentId);
     Long deleteCommentJPA(Comment commentId);
 
