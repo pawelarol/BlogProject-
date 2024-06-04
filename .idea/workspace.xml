@@ -9,12 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPACommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPACommentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +70,7 @@
       <recent name="A:\javaCode\Git\BlogProject\src\main\resources\META-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JPAPostTest.addPostTest">
+  <component name="RunManager" selected="JUnit.JPAPostTest.getPostTest">
     <configuration name="JPACommentTest.getCommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LetsTry" />
       <extension name="coverage">
@@ -159,9 +153,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JPAPostTest.getPostTest" />
         <item itemvalue="JUnit.JPAPostTest.addPostTest" />
         <item itemvalue="JUnit.JPAPostTest.getPostsTest" />
-        <item itemvalue="JUnit.JPAPostTest.getPostTest" />
         <item itemvalue="JUnit.JPACommentTest.getCommentsTest" />
         <item itemvalue="JUnit.JPACommentTest.getCommentTest" />
       </list>
