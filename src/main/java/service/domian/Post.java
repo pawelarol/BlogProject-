@@ -15,12 +15,19 @@ import java.util.List;
 //@Getter
 //@AllArgsConstructor
 //@NoArgsConstructor
+
+@NamedQueries({
+        @NamedQuery(name = "Post.getPosts",
+                query = "SELECT p FROM Post p" +
+                        "LEFT JOIN FETCH p.userId"+
+                        "WHERE p.userId = :p.userId"
+        )
+})
 public class Post implements Serializable {
 
     public Post() {
 
     }
-
     @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "post_id")

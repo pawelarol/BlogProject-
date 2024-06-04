@@ -8,7 +8,7 @@ import service.domian.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,8 +70,8 @@ public class JPA implements DaoHibernateInterface {
         Long commentId = 0L;
         emf = Persistence.createEntityManagerFactory("persistence");
         try{
-            comment.setPostId(postId);
-            comment.setUserId(userId);
+            comment.setPost(postId);
+            comment.setUser(userId);
             em = emf.createEntityManager();
             em.getTransaction().begin();
             em.persist(comment);
@@ -97,11 +97,15 @@ public class JPA implements DaoHibernateInterface {
         try{
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            TypedQuery<Post> query = em.createQuery("SELECT p FROM bl_post p ORDER BY p.post_id", Post.class);
-            query.setFirstResult((page - 1) * pageSize);
-            query.setMaxResults(pageSize);
+
+           Query query = em.createNamedQuery("Post.getPosts");
+           query.setParameter("p.userId" , 1L );
             posts = query.getResultList();
-            em.getTransaction().commit();
+//            TypedQuery<Post> query = em.createQuery("SELECT p FROM bl_post p ORDER BY p.post_id", Post.class);
+//            query.setFirstResult((page - 1) * pageSize);
+//            query.setMaxResults(pageSize);
+//            posts = query.getResultList();
+//            em.getTransaction().commit();
 
         } catch (Exception e){
             e.printStackTrace();
@@ -171,11 +175,13 @@ public class JPA implements DaoHibernateInterface {
         try {
             em = emf.createEntityManager();
             // Неправильно написан hql запрос, я нашел сторонний проект который помогает в генераций запросов
-            String hql = "SELECT с FROM bl_comment c  WHERE c.post_id = c.post_id ORDER BY c.date_of_publish DESC";
-            TypedQuery<Comment> query = em.createQuery(hql, Comment.class);
-            query.setParameter("post_id", postId);
-            query.setMaxResults(10);
-            comments = query.getResultList();
+
+            comments = em.createQuery("SELECT c FROM bl_comment c ").getResultList();
+//            String hql = "SELECT с FROM bl_comment c  WHERE c.post_id = c.post_id ORDER BY c.date_of_publish DESC";
+//            TypedQuery<Comment> query = em.createQuery(hql, Comment.class);
+//            query.setParameter("post_id", postId);
+//            query.setMaxResults(10);
+//            comments = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -188,8 +194,28 @@ public class JPA implements DaoHibernateInterface {
 
 
     @Override
-    public Comment getCommentJPA(Comment commentId) {
-        return null;
+    public Comment getCommentJPA(Comment commentId, long postId) {
+        Comment comment = null;
+        emf = Persistence.createEntityManagerFactory("persistence");
+
+        try{
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+            String jpql = "SELECT c FROM bl_comment c WHERE c.post_id = :post_id AND c.comment_id = :comment_id";
+            comment = em.createQuery(jpql, Comment.class)
+                    .setParameter("postId", postId)
+                    .setParameter("commentId", commentId)
+                    .getSingleResult();
+            em.getTransaction().commit();
+            if(em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            }
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return comment;
     }
 
     @Override

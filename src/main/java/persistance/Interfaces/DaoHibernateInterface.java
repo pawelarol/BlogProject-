@@ -16,7 +16,7 @@ public interface DaoHibernateInterface {
     // comments
     Long addCommentJPA(Comment comment, Post post, User user);
     List<Comment> getCommentsJPA(long postId);
-    Comment getCommentJPA(Comment commentId);
+    Comment getCommentJPA(Comment commentId, long postId);
     Long deleteCommentJPA(Comment commentId);
 
     // user

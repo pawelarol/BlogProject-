@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @Table(name = "bl_comment")
 public class Comment implements Serializable {
 
-    public Comment(){
-
+    // Конструктор по умолчанию
+    public Comment() {
     }
 
     @Id
@@ -21,19 +21,24 @@ public class Comment implements Serializable {
     private long commentId;
 
     @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post postId;
-    @Column(name = "comment_title")
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
+
+    @Column(name = "comment_title", nullable = false)
     private String title;
-    @Column(name = "comment_text")
+
+    @Column(name = "comment_text", nullable = false)
     private String text;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User userId;
-    @Column(name = "date_of_publish")
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @Column(name = "date_of_publish", nullable = false)
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDateTime dateOfPublish;
 
+    // Геттеры и сеттеры
     public long getCommentId() {
         return commentId;
     }
@@ -42,12 +47,12 @@ public class Comment implements Serializable {
         this.commentId = commentId;
     }
 
-    public Post getPostId() {
-        return postId;
+    public Post getPost() {
+        return post;
     }
 
-    public void setPostId(Post postId) {
-        this.postId = postId;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public String getTitle() {
@@ -66,12 +71,12 @@ public class Comment implements Serializable {
         this.text = text;
     }
 
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getDateOfPublish() {
@@ -82,14 +87,15 @@ public class Comment implements Serializable {
         this.dateOfPublish = dateOfPublish;
     }
 
+    // Переопределение метода toString
     @Override
     public String toString() {
         return "Comment{" +
                 "commentId=" + commentId +
-                ", postId=" + postId +
+                ", post=" + post +
                 ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
-                ", userId=" + userId +
+                ", user=" + user +
                 ", dateOfPublish=" + dateOfPublish +
                 '}';
     }

@@ -40,4 +40,13 @@ public class JPACommentTest {
             System.out.println(c);
         }
     }
+
+    @Test
+    public void getCommentTest(){
+        Comment commentRequest = new Comment();
+        commentRequest.setCommentId(2);
+        Comment comment = jpa.getCommentJPA(commentRequest,2);
+        Assertions.assertNotNull(comment);
+        System.out.println(comment);
+    }
 }
