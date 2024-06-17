@@ -1,0 +1,11 @@
+1. User - add post
+2.User - add comment
+3. User - add user
+4. User - getPost
+5. User - getPosts
+6. User - deletePost
+7. User - getComment
+8. User - getComments
+9. User - deleteComments
+10. User - deleteUser
+11. User - editUser

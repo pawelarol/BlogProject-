@@ -11,6 +11,7 @@ import java.util.List;
 
 public class JPAPostTest {
 
+
     private ContentBuilder builder;
     private JPA jpa;
 
@@ -32,6 +33,8 @@ public class JPAPostTest {
         }
     }
 
+
+    //не работает
     @Test
     public void getPostTest(){
         Long postId = 1L;
@@ -48,6 +51,8 @@ public class JPAPostTest {
         Assertions.assertNotNull(postId);
     }
 
+
+    // не работает
     @Test
     public void getPostsTest(){
         List<Post> posts = jpa.getPostsJPA(1);

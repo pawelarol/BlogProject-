@@ -22,7 +22,7 @@ public interface DaoHibernateInterface {
     // user
 
     Long addUserJPA(User user);
-    User getUserJPA(User userId);
-    Long deleteUserJPA (User userId);
+    User getUserJPA(long userId);
+    User deleteUserJPA (User user);
 
 }

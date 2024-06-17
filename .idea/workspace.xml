@@ -9,12 +9,16 @@
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPACommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPACommentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAPostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "A:/instaillers/hql-generator-master",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;A:/javaCode/AntonSaburow/Dirty&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="web.impl" />
@@ -76,39 +80,7 @@
       <recent name="A:\javaCode\Git\BlogProject\src\main\resources\META-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JPAPostTest.getPostsTest">
-    <configuration name="JPACommentTest.addCommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LetsTry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPACommentTest" />
-      <option name="METHOD_NAME" value="addCommentTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JPACommentTest.getCommentsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LetsTry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPACommentTest" />
-      <option name="METHOD_NAME" value="getCommentsTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.JPAUserTest.deleteUser">
     <configuration name="JPAPostTest.addPostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LetsTry" />
       <extension name="coverage">
@@ -120,22 +92,6 @@
       <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
       <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAPostTest" />
       <option name="METHOD_NAME" value="addPostTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JPAPostTest.deletePostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LetsTry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
-      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAPostTest" />
-      <option name="METHOD_NAME" value="deletePostTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,13 +113,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JPAUserTest.addUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="addUserTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAUserTest.deleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="deleteUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAUserTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="getUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JPAPostTest.getPostsTest" />
+        <item itemvalue="JUnit.JPAUserTest.deleteUser" />
+        <item itemvalue="JUnit.JPAUserTest.getUser" />
+        <item itemvalue="JUnit.JPAUserTest.addUserTest" />
         <item itemvalue="JUnit.JPAPostTest.addPostTest" />
-        <item itemvalue="JUnit.JPAPostTest.deletePostTest" />
-        <item itemvalue="JUnit.JPACommentTest.getCommentsTest" />
-        <item itemvalue="JUnit.JPACommentTest.addCommentTest" />
+        <item itemvalue="JUnit.JPAPostTest.getPostsTest" />
       </list>
     </recent_temporary>
   </component>
