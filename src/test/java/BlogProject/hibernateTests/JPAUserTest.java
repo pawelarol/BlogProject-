@@ -38,6 +38,7 @@ public class JPAUserTest {
         }
     }
 
+
     @Test
     public void deleteUser(){
         User user =  new User();

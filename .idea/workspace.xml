@@ -9,16 +9,7 @@
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/Interfaces/DaoHibernateInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistance/dao/hibernateDao/JPA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/domian/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/domian/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPACommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPACommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAPostTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlogProject/hibernateTests/JPAUserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StudentOrderProject" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentOrderProject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
