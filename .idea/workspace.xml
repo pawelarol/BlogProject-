@@ -37,8 +37,8 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
+    &quot;associatedIndex&quot;: 5
+    }</component>
   <component name="ProjectId" id="2doCq4rBpDb7MiSptGwbHJ7fRqP" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -48,7 +48,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
+    &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -59,8 +59,8 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="web.impl" />
@@ -145,6 +145,54 @@
       <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
       <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAPostTest" />
       <option name="METHOD_NAME" value="getPostsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAUserTest.addUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="addUserTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAUserTest.deleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="deleteUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPAUserTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LetsTry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BlogProject.hibernateTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BlogProject.hibernateTests" />
+      <option name="MAIN_CLASS_NAME" value="BlogProject.hibernateTests.JPAUserTest" />
+      <option name="METHOD_NAME" value="getUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />

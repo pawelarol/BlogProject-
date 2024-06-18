@@ -5,46 +5,48 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
+// добавить в версию 1.1 функциональность "показать комментарий
+// и посты пользователя" нужна ли нам коллекция в структуре user
+// private List<BlogCommentRequest> userComments;
+
 @Entity
 @Table( name = "bl_user")
 public class User implements Serializable {
 
-    public User(){
-
-    }
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name = "user_id")
+//@OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private Long userId;
+
 @Column(name = "user_name", nullable = false)
     private String userName;
+
 @Column(name = "user_mail", nullable = false)
     private String userMail;
+
 @Column(name = "user_password", nullable = false)
     private String userPassword;
+
 @Column(name = "user_first_last_name")
     private String firstLastName;
+
 @Column(name = "user_about_yourself")
     private String aboutYourself;
+
+@Transient // временно
 @Column(name = "user_avatar")
     private byte[] userAvatar;
+
 @Column (name = "date_of_register", nullable = false)
     private Timestamp dateOfRegister;
-
-    //  если мы не пишем функциональность "показать комментарий
-    // и посты пользователя" нужна ли нам коллекция в структуре user
-   // private List<BlogCommentRequest> userComments;
 
     @Column (name = "user_role", nullable = false)
     private String userRole;
 
-  //  public List<BlogCommentRequest> getUserComments() {
-//        return userComments;
-//    }
-//
-//    public void setUserComments(List<BlogCommentRequest> userComments) {
-//        this.userComments = userComments;
-//    }
+
+    public User() {
+    }
 
     public long getUserId() {
         return userId;

@@ -18,7 +18,7 @@ public class JPACommentTest {
         builder = new ContentBuilder();
         jpa = new JPA();
     }
-
+    // not work
     @Test
     public void addCommentTest(){
         for(int i = 0; i<10; i++) {

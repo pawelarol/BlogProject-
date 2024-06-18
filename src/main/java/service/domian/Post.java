@@ -10,7 +10,12 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "bl_post")
+@Table(name = "bl_post", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "post_id"),
+        @UniqueConstraint(columnNames = "post_text"),
+        @UniqueConstraint(columnNames = "user_id"),
+        @UniqueConstraint(columnNames = "date_of_publish")
+})
 //@Setter
 //@Getter
 //@AllArgsConstructor
@@ -25,9 +30,31 @@ import java.util.List;
 })
 public class Post implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column( name = "post_id", unique = true, nullable = false)
+    private Long postId;
+    @Transient
+    private ObjectStatus statusPost;
+    @Column(name = "post_title", length = 255)
+    private String title;
+    @Column(name = "post_text", unique = true, nullable = false, length = 25000)
+    private String text;
+    @JoinColumn(name = "user_id", unique = true, nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    private User user;
+    @Column(name = "date_of_publish", unique = true, nullable = false)
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+    private LocalDateTime dateOfPublish;
+    @Transient
+    // ДОБАВИТЬ ПОСЛЕ ПРОВЕРКИ КЛЮЧЕЙ ВНУТРИ БАЗ И ВЫСТАВЛЕНИЯ ПРАВИЛЬНЫХ ЗАВИСИМОСТЕЙ
+    // МЕЖДУ СУЩНОСТЯМИ
+    private List<Comment> postComments;
+
     public Post() {
 
     }
+<<<<<<< HEAD
     @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "post_id")
@@ -46,6 +73,28 @@ public class Post implements Serializable {
     private LocalDateTime dateOfPublish;
     @Transient
     private List<Comment> postComments;
+=======
+
+    public Post(Long postId, String text, User user) {
+        this.postId = postId;
+        this.text = text;
+        this.user = user;
+    }
+
+    public Post(Long postId, ObjectStatus statusPost, String title, String text, User user, LocalDateTime dateOfPublish, List<Comment> postComments) {
+        this.postId = postId;
+        this.statusPost = statusPost;
+        this.title = title;
+        this.text = text;
+        this.user = user;
+        this.dateOfPublish = dateOfPublish;
+        this.postComments = postComments;
+    }
+
+    public long getPostId() {
+        return postId;
+    }
+>>>>>>> temp-branch
 
     public void setPostId(Long postId) {
         this.postId = postId;
@@ -59,14 +108,10 @@ public class Post implements Serializable {
         this.postComments = postComments;
     }
 
-    public long getPostId() {
-        return postId;
-    }
 
     public void setPostId(long postId) {
         this.postId = postId;
     }
-
 
     public String getTitle() {
         return title;
@@ -83,7 +128,7 @@ public class Post implements Serializable {
     public void setText(String text) {
         this.text = text;
     }
-
+    @Transient
     public ObjectStatus getStatusPost() {
         return statusPost;
     }

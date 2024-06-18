@@ -14,16 +14,19 @@ import java.util.List;
 
 public class JPA implements DaoHibernateInterface {
 
-    private EntityManagerFactory emf;
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+
+    public static EntityManagerFactory getEntityManagerFactory() {
+        return emf;
+    }
     private EntityManager em;
 
 
     @Override
     public Long addPostJPA(Post post, User userId) {
-        emf = Persistence. createEntityManagerFactory("persistence");
         Long postId = 0L;
         try{
-            em = emf.createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             post.setUser(userId);
             em.persist(post);
@@ -45,14 +48,14 @@ public class JPA implements DaoHibernateInterface {
 
     @Override
     public Long addUserJPA(User user) {
-        emf = Persistence.createEntityManagerFactory("persistence");
-        Long userId = 0L;
+        long userId = 0L;
         try{
-            em = emf.createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();
-            userId = user.getUserId();
+            User userAnswer = em.find(User.class, user.getUserId());
+            userId = userAnswer.getUserId();
             System.out.println("User ID of the saved post: " + userId);
         } catch (Exception ex){
             if(em.getTransaction().isActive()){
@@ -68,11 +71,16 @@ public class JPA implements DaoHibernateInterface {
     @Override
     public Long addCommentJPA(Comment comment, Post postId, User userId) {
         Long commentId = 0L;
-        emf = Persistence.createEntityManagerFactory("persistence");
         try{
+<<<<<<< HEAD
             comment.setPost(postId);
             comment.setUser(userId);
             em = emf.createEntityManager();
+=======
+            comment.setPostId(postId);
+            comment.setUserId(userId);
+            em = getEntityManagerFactory().createEntityManager();
+>>>>>>> temp-branch
             em.getTransaction().begin();
             em.persist(comment);
             em.getTransaction().commit();
@@ -93,9 +101,8 @@ public class JPA implements DaoHibernateInterface {
     public List<Post> getPostsJPA(int page) {
         final int pageSize = 10;
         List<Post> posts = new ArrayList<>();
-        emf = Persistence.createEntityManagerFactory("persistence");
         try{
-            em = emf.createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
 
            Query query = em.createNamedQuery("Post.getPosts");
@@ -119,9 +126,8 @@ public class JPA implements DaoHibernateInterface {
     @Override
     public Post getPostJPA(Long postId) {
         Post post = null;
-        emf = Persistence.createEntityManagerFactory("persistence");
         try{
-            em = emf.createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
 
             post = em.find(Post.class,postId);
@@ -143,10 +149,8 @@ public class JPA implements DaoHibernateInterface {
     @Override
     public Long deletePostJPA(Post post) {
         long answer = 0L;
-        emf = Persistence.createEntityManagerFactory("persistence");
-
         try{
-            em = emf.createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
 
             Post findPost = em.find(Post.class, post.getPostId());
@@ -171,9 +175,8 @@ public class JPA implements DaoHibernateInterface {
     public List<Comment> getCommentsJPA(long postId) {
         EntityManager em = null;
         List<Comment> comments = null;
-        emf = Persistence.createEntityManagerFactory("persistence");
         try {
-            em = emf.createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
             // Неправильно написан hql запрос, я нашел сторонний проект который помогает в генераций запросов
 
             comments = em.createQuery("SELECT c FROM bl_comment c ").getResultList();
@@ -225,12 +228,53 @@ public class JPA implements DaoHibernateInterface {
 
 
     @Override
-    public User getUserJPA(User userId) {
-        return null;
+    public User getUserJPA(long userId) {
+        User user = null;
+
+        try{
+            em = getEntityManagerFactory().createEntityManager();
+            em.getTransaction().begin();
+            user = em.find(User.class, userId);
+            em.getTransaction().commit();
+
+            if(em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            }
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        finally {
+            em.close();
+        }
+
+        return user;
     }
 
     @Override
-    public Long deleteUserJPA(User userId) {
-        return null;
+    public User deleteUserJPA(User user) {
+        User userAnswer = null;
+
+        try{
+            em = getEntityManagerFactory().createEntityManager();
+            em.getTransaction().begin();
+            em.remove(em.contains(user) ? user : em.merge(user));
+            em.getTransaction().commit();
+
+            if(em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            } else{
+                userAnswer = em.find(User.class, user.getUserId());
+            }
+
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        finally {
+            em.close();
+        }
+        return userAnswer;
     }
 }
